@@ -13,7 +13,7 @@ points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5, -7, 0 )
 custom_solver_bias = 0.0
 radius = 160.0
 
-[node name="RigidBody2D" type="RigidBody2D" index="0"]
+[node name="comet" type="RigidBody2D" index="0"]
 
 position = Vector2( 435.204, 159.221 )
 input_pickable = false
@@ -26,8 +26,8 @@ bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 10
+contact_monitor = true
 sleeping = false
 can_sleep = true
 linear_velocity = Vector2( 0, 0 )
