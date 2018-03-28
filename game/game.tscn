@@ -5,7 +5,7 @@
 [ext_resource path="res://comet/comet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://spaceship.tscn" type="PackedScene" id=4]
 
-[node name="game" type="Node2D" index="0"]
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
