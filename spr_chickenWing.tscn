@@ -5,6 +5,7 @@
 
 [node name="spr_chickenWing" type="RigidBody2D" index="0"]
 
+rotation = 1.5708
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -36,5 +37,37 @@ _sections_unfolded = [ "Z Index" ]
 
 build_mode = 0
 polygon = PoolVector2Array( 27.3909, 0.294579, -4.97505, -19.5321, -13.4195, -11.9863, -21.6883, -6.4897, -21.6883, 5.90452, -11.2467, 12.481, -4.84554, 19.8053 )
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
+
+polygon = PoolVector2Array( -0.145988, 1.15222, 127.36, 80.9923, 153.973, 1.94663, 130.14, -81.4684 )
+uv = PoolVector2Array(  )
+color = Color( 0.542969, 0.517119, 0.129379, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="vision_area" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="vision_area" type="CollisionPolygon2D" parent="vision_area" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 11.7704, 11.877, 125.771, 81.7867, 153.576, 2.74107, 128.949, -81.4684, 10.976, -11.1614 )
+
+[connection signal="body_entered" from="vision_area" to="." method="_on_vision_area_body_entered"]
 
 

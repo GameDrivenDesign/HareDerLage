@@ -13,15 +13,21 @@ func _ready():
 	pass
 
 func _physics_process(dt):
-	#if target:
-	#	var delta = target.position - position
-	#	var movement = delta.normalized() * speed
-	#	applied_force = movement
-	var follow = get_node("../Path2D/PathFollow2D")
-	follow.loop = true
-	follow.cubic_interp = true
-	follow.rotate = true
-	follow.offset += speed * dt
-	var start = position
-	position = get_node("../Path2D").position + follow.position
-	rotation = follow.rotation
+	if target:
+		var delta = target.position - position
+		var movement = delta.normalized() * speed
+		applied_force = movement
+	else:
+		var follow = get_node("../Path2D/PathFollow2D")
+		follow.loop = true
+		follow.cubic_interp = true
+		follow.rotate = true
+		follow.offset += speed * dt
+		var start = position
+		position = get_node("../Path2D").position + follow.position
+		rotation = follow.rotation
+	
+
+func _on_vision_area_body_entered(body):
+	if body is preload("res://spaceship.gd"):
+		target = player
