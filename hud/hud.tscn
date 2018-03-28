@@ -1,0 +1,30 @@
+[gd_scene format=2]
+
+[node name="hud" type="Node2D"]
+
+position = Vector2( 349, 218.5 )
+scale = Vector2( 10.9063, 6.82813 )
+
+[node name="health" type="Label" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 31.0
+margin_bottom = -18.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "999 HP"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "Rect", "Size Flags", "Theme", "Visibility", "custom_fonts", "custom_styles" ]
+
+
