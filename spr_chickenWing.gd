@@ -16,5 +16,3 @@ func _physics_process(dt):
 		var delta = target - position
 		var movement = delta.normalized() * speed
 		applied_force = movement
-		#print("movement: " + str(movement))
-		print(movement)

@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 80.5634, 88.7136 )
 
-[node name="spr_chickenWing" type="RigidBody2D" index="0"]
+[node name="spr_chickenWing" type="RigidBody2D"]
 
 scale = Vector2( 1.54401, 1.6901 )
 input_pickable = false
