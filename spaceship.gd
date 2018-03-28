@@ -5,7 +5,10 @@ var speed = 200
 var handling = 20
 
 # Remaining space ship health
-var health = 100.0
+var health = 1.0
+
+# Whether or not the player is still alive
+var alive = true
 
 # This can be called by chicken wings or comets
 # to make the spaceship take damage
@@ -21,7 +24,17 @@ func take_proportional_damage(damage, other_velocity):
 func set_health(new_health):
 	health = new_health
 	# TODO Do something when spaceship is dead.
-	get_node('/root/game/CanvasLayer/hud/health').text = str(round(health)) + ' HP'
+	get_node('/root/game/CanvasLayer/hud/health').text = str(ceil(health)) + ' HP'
+
+	if health == 0 and alive:
+		die()
+		
+func die():
+	alive = false
+	
+	var explosion = preload("res://explosion/explosion.tscn").instance()
+	explosion.position = $CollisionShape2D.position
+	add_child(explosion)
 
 func _ready():
 	set_health(health)
