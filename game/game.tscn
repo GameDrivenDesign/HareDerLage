@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://comet/comet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/test.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 50.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RigidBody2D" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 401.37, 125.387 )
+
+[node name="RigidBody2D2" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 487.563, 357.535 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="." index="2"]
+
+position = Vector2( 133, 309 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D3" index="0"]
+
+position = Vector2( -589.117, -240.822 )
+polygon = PoolVector2Array( 554.415, 238.315, 562.376, 193.203, 638.669, 250.92, 576.308, 300.677 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3" index="1"]
+
+position = Vector2( 1.33514e-05, 9.28787 )
+shape = SubResource( 1 )
+
+
