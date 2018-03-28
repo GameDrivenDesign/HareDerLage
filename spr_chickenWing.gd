@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 var speed = 80
-var super_fuel = 100
 var player = null
 var target = null
 var old_delta = Vector2(0.0, 0.0)
@@ -12,14 +11,12 @@ func _ready():
 	pass
 
 func _physics_process(dt):
-	if super_fuel < 100:
-		super_fuel += 1
 	if target:
 		var delta = target.position - position
 		var movement = delta.normalized() * speed
 		applied_force = movement
 		if (linear_velocity.length() > 200 && (delta.length() - old_delta.length()) > 5):
-			apply_impulse(Vector2(0,0), - linear_velocity/2)
+			apply_impulse(Vector2(0,0), - linear_velocity)
 		rotation = (target.position - position).angle()
 		print(delta)
 		old_delta = delta
