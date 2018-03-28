@@ -14,8 +14,8 @@ func take_damage(damage):
 
 func set_health(new_health):
 	health = new_health
-	# TODO: Do something when spaceship is dead.
-	get_node('/root/game/hud/health').text = str(round(health)) + ' HP'
+	# TODO Do something when spaceship is dead.
+	get_node('/root/game/CanvasLayer/hud/health').text = str(round(health)) + ' HP'
 
 func _ready():
 	set_health(health)
