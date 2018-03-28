@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var torque = 400
+var torque = 200
 var speed = 200
 var handling = 20
 

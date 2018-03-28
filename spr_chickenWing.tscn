@@ -42,7 +42,7 @@ polygon = PoolVector2Array( 27.3909, 0.294579, -4.97505, -19.5321, -13.4195, -11
 
 polygon = PoolVector2Array( -0.145988, 1.15222, 127.36, 80.9923, 153.973, 1.94663, 130.14, -81.4684 )
 uv = PoolVector2Array(  )
-color = Color( 0.542969, 0.517119, 0.129379, 1 )
+color = Color( 0.542969, 0.517119, 0.129379, 0.635333 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
@@ -52,6 +52,7 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
+_sections_unfolded = [ "Material", "Pause", "Texture", "Visibility" ]
 
 [node name="vision_area" type="Area2D" parent="." index="3"]
 
