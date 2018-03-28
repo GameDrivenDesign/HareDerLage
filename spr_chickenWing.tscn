@@ -1,16 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://spr_chickenWing.gd" type="Script" id=1]
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 156.637, 120.836 )
-
 [node name="spr_chickenWing" type="RigidBody2D"]
 
-scale = Vector2( 1.54401, 1.6901 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -21,8 +15,8 @@ bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 10
-contact_monitor = true
+contacts_reported = 0
+contact_monitor = false
 sleeping = false
 can_sleep = true
 linear_velocity = Vector2( 0, 0 )
@@ -30,14 +24,38 @@ linear_damp = 0.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Linear", "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+z_index = 2
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
+z_index = 2
 shape = SubResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
+[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
 
+z_index = 1
+polygon = PoolVector2Array( -1.42016, 0.222259, -150.258, 163.895, 150.258, 163.895 )
+uv = PoolVector2Array(  )
+color = Color( 0.984314, 1, 0, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Z Index" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 21.8034, 0.0389099, -4.97505, -19.5321, -10.3224, -6.44123, -21.6883, -6.4897, -21.6883, 5.90452, -10.2854, 5.90452, -4.84554, 19.8053 )
