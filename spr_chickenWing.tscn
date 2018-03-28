@@ -1,16 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://spr_chickenWing.gd" type="Script" id=1]
-[ext_resource path="res://chicken_wing/chicken_wing_placeholder.PNG" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32.4787, 34.5117 )
+[ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 
 [node name="spr_chickenWing" type="RigidBody2D"]
 
-scale = Vector2( 1.54401, 1.6901 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -38,7 +32,7 @@ z_index = 2
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 z_index = 2
 shape = SubResource( 1 )
@@ -64,6 +58,4 @@ _sections_unfolded = [ "Z Index" ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -14.2486, 12.4253, -150.258, 163.304, 150.258, 163.895, 12.3056, 13.017 )
-
-
+polygon = PoolVector2Array( 21.8034, 0.0389099, -4.97505, -19.5321, -10.3224, -6.44123, -21.6883, -6.4897, -21.6883, 5.90452, -10.2854, 5.90452, -4.84554, 19.8053 )

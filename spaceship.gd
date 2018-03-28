@@ -1,8 +1,24 @@
 extends RigidBody2D
 
-var torque = 100
-var speed = 20
+var torque = 400
+var speed = 200
 var handling = 20
+
+# Remaining space ship health
+var health = 100.0
+
+# This can be called by chicken wings or comets
+# to make the spaceship take damage
+func take_damage(damage):
+	set_health(max(health - damage, 0))
+
+func set_health(new_health):
+	health = new_health
+	# TODO Do something when spaceship is dead.
+	get_node('/root/game/CanvasLayer/hud/health').text = str(round(health)) + ' HP'
+
+func _ready():
+	set_health(health)
 
 func _physics_process(delta):
 	
