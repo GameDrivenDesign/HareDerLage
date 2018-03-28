@@ -11,7 +11,7 @@ func _ready():
 func spawn_chicken(pos):
 	var chicken = preload("res://spr_chickenWing.tscn").instance()
 	chicken.position = pos
-	chicken.target = $spaceship
+	chicken.player = $spaceship
 	
 	add_child(chicken)
 
