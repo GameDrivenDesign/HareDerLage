@@ -2,18 +2,18 @@
 
 [ext_resource path="res://explosion/particle_line.png" type="Texture" id=1]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 5 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -42,7 +42,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.3
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -52,18 +52,18 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Flags", "Initial Velocity", "Scale", "Spread" ]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 
 offsets = PoolRealArray( 0, 0.703499 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.591104, 0.112903, 0.230039 )
 
-[sub_resource type="GradientTexture" id=4]
+[sub_resource type="GradientTexture" id=5]
 
 flags = 4
-gradient = SubResource( 3 )
+gradient = SubResource( 4 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -92,7 +92,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 8.0
 scale_random = 0.0
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 5 )
 hue_variation = 0.0
 hue_variation_random = 1.0
 anim_speed = 0.0
@@ -119,7 +119,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 1 )
+process_material = SubResource( 3 )
 texture = ExtResource( 1 )
 normal_map = null
 h_frames = 1
@@ -141,7 +141,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 2 )
+process_material = SubResource( 6 )
 texture = null
 normal_map = null
 h_frames = 1

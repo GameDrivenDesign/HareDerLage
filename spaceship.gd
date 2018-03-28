@@ -65,6 +65,7 @@ func _physics_process(delta):
 		applied_torque = 0
 	if Input.is_action_just_pressed("shoot"):
 		var projectile = preload("res://projectile.tscn").instance()
-		projectile.position = position + Vector2(0, 20)
+		projectile.position = position + Vector2(0, 20).rotated(transform.get_rotation())
 		projectile.rotation = transform.get_rotation()
 		get_parent().add_child(projectile)
+		projectile.add_collision_exception_with(self)
