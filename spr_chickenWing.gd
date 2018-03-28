@@ -1,8 +1,6 @@
 extends RigidBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var damage = 5
 var speed = 150
 var target = null
 
@@ -16,3 +14,8 @@ func _physics_process(dt):
 		var delta = target.position - position
 		var movement = delta.normalized() * speed
 		applied_force = movement
+
+func _process(delta):
+	for collider in get_colliding_bodies():
+		if collider.has_method('take_proportional_damage'):
+			collider.take_proportional_damage(damage, linear_velocity)

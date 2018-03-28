@@ -11,6 +11,12 @@ var health = 100.0
 # to make the spaceship take damage
 func take_damage(damage):
 	set_health(max(health - damage, 0))
+	#print(damage)
+
+func take_proportional_damage(damage, other_velocity):
+	#take_damage(damage * Vector2(linear_velocity - other_velocity).length())
+	#print(Vector2(linear_velocity - other_velocity).length())
+	pass
 
 func set_health(new_health):
 	health = new_health
@@ -21,7 +27,6 @@ func _ready():
 	set_health(health)
 
 func _physics_process(delta):
-	
 	var angle = Vector2(0, 1).rotated(transform.get_rotation()).angle_to(linear_velocity)
 		
 	if Input.is_action_pressed("up"):
