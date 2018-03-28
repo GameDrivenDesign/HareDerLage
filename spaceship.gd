@@ -1,14 +1,22 @@
 extends RigidBody2D
 
+var tween
+
 var torque = 200
 var speed = 200
 var handling = 20
 
 # Remaining space ship health
-var health = 1.0
+var health = 100.0
 
 # Whether or not the player is still alive
 var alive = true
+
+func _ready():
+	tween = Tween.new()
+	add_child(tween)
+	
+	set_health(health)
 
 # This can be called by chicken wings or comets
 # to make the spaceship take damage
@@ -36,8 +44,10 @@ func die():
 	explosion.position = $CollisionShape2D.position
 	add_child(explosion)
 
-func _ready():
-	set_health(health)
+	tween.interpolate_property(self, "scale", Vector2(1, 1), Vector2(0.1, 0.1), 0.5, Tween.TRANS_BACK, Tween.EASE_IN)
+	tween.start()
+	yield(tween, "tween_completed")
+	queue_free()
 
 func _physics_process(delta):
 	var angle = Vector2(0, 1).rotated(transform.get_rotation()).angle_to(linear_velocity)
