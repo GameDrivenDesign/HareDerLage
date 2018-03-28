@@ -24,4 +24,4 @@ func _physics_process(dt):
 	follow.offset += speed * dt
 	var start = position
 	position = get_node("../Path2D").position + follow.position
-	rotation = follow.rotation - PI / 2
+	rotation = follow.rotation
