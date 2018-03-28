@@ -4,15 +4,15 @@
 [ext_resource path="res://comet/comet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://spaceship.tscn" type="PackedScene" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
-[node name="RigidBody2D" parent="." index="0" instance=ExtResource( 2 )]
+[node name="comet1" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 401.37, 125.387 )
 
-[node name="RigidBody2D2" parent="." index="1" instance=ExtResource( 2 )]
+[node name="comet2" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 487.563, 357.535 )
 
