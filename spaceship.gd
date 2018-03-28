@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var torque = 100
 var speed = 20
-var handling = 20
+var handling = 0
 
 func _physics_process(delta):
 	

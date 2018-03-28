@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="spaceship" type="RigidBody2D" index="0"]
+[node name="spaceship" type="RigidBody2D"]
 
 position = Vector2( 68.1816, 37.7621 )
 input_pickable = false
