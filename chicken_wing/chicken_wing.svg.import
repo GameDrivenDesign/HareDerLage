@@ -7,7 +7,7 @@ path="res://.import/chicken_wing.svg-b8898901431a299ecfa67b6e30555d3e.stex"
 [deps]
 
 source_file="res://chicken_wing/chicken_wing.svg"
-source_md5="d1e37584ae312c1f3810ef5bc2de816a"
+source_md5="7bd76f3ddc4a4c262e7a94ff1f19b011"
 
 dest_files=[ "res://.import/chicken_wing.svg-b8898901431a299ecfa67b6e30555d3e.stex" ]
 dest_md5="24877f12cdaf56f5bcd2deda8264d9d9"
