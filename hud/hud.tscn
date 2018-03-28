@@ -4,7 +4,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 12
+size = 60
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 1 )
@@ -13,7 +13,7 @@ _sections_unfolded = [ "Extra Spacing", "Font/fallback", "Settings" ]
 [node name="hud" type="Node2D" index="0"]
 
 position = Vector2( 349, 218.5 )
-scale = Vector2( 10.9063, 6.82813 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="health" type="Label" parent="." index="0"]
 
@@ -21,10 +21,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = -32.0
-margin_right = 62.0
-margin_bottom = -18.0
+margin_left = 448.0
+margin_top = -210.0
+margin_right = 664.0
+margin_bottom = -141.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
