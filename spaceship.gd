@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-var torque = 100
-var speed = 20
+var torque = 400
+var speed = 200
 var handling = 20
 
 # Remaining space ship health

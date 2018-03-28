@@ -3,7 +3,7 @@
 [ext_resource path="res://spr_chickenWing.gd" type="Script" id=1]
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 
-[node name="spr_chickenWing" type="RigidBody2D" index="0"]
+[node name="spr_chickenWing" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
