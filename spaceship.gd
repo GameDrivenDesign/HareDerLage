@@ -2,12 +2,15 @@ extends RigidBody2D
 
 var tween
 
+signal health_changed(percentage)
+
 var torque = 5000
 var speed = 200
 var handling = 20
 var fire_intervall = 0.6
-# Remaining space ship health
-var health = 10000000000.0
+
+const MAX_HEALTH = 200
+var health = MAX_HEALTH
 
 # Whether or not the player is still alive
 var alive = true
@@ -32,9 +35,9 @@ func take_proportional_damage(damage, other_velocity):
 func set_health(new_health):
 	health = new_health
 	# TODO Do something when spaceship is dead.
-	get_node('/root/game/hud_layer/hud/health').text = str(ceil(health)) + ' HP'
-	get_node('/root/game/hud_layer/hud/health_bar').margin_right = 7.5*health - 400
-
+	
+	emit_signal("health_changed", new_health / MAX_HEALTH)
+	
 	if health == 0 and alive:
 		die()
 		
