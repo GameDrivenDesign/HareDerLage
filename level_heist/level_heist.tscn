@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://comet/map.tres" type="TileSet" id=1]
 [ext_resource path="res://spaceship.tscn" type="PackedScene" id=2]
-[ext_resource path="res://destination/destination.tscn" type="PackedScene" id=3]
-[ext_resource path="res://comet/comet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://turret/turret.tscn" type="PackedScene" id=3]
+[ext_resource path="res://destination/destination.tscn" type="PackedScene" id=4]
+[ext_resource path="res://comet/comet.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -89,6 +90,13 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -795.541, 167.908, 0, 0, 0, 0, -1407.71, 279.995, 0, 0, 0, 0, -2278.54, -504.614, 0, 0, 0, 0, -2726.89, -237.33, 0, 0, 0, 0, -2571.69, 780.076, 0, 0, 0, 0, -2080.23, 1331.89, 0, 0, 0, 0, -967.982, 1254.29, 0, 0, 0, 0, -295.461, 814.564, 0, 0, 0, 0, 351.195, 486.925, 0, 0, 0, 0, 2023.88, 297.239, 0, 0, 0, 0, 2265.3, -116.621, 0, 0, 0, 0, 1713.48, -590.835, 0, 0, 0, 0, -166.129, -254.574, 0, 0, 0, 0, -769.674, 167.908 )
 }
 
+[sub_resource type="Curve2D" id=13]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 157.76, -563.877, 0, 0, 0, 0, -181.295, 891.669, 0, 0, 0, 0, -335.41, 984.139, 0, 0, 0, 0, -438.158, 881.395, 0, 0, 0, 0, -75.127, -646.072, 0, 0, 0, 0, 72.1406, -724.843, 0, 0, 0, 0, 157.76, -570.726 )
+}
+
 [node name="level_heist" type="Node2D" index="0"]
 
 [node name="TileMap2" type="TileMap" parent="." index="0"]
@@ -116,6 +124,8 @@ __meta__ = {
 }
 
 [node name="chicken_paths" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Path2D_1" type="Path2D" parent="chicken_paths" index="0"]
 
@@ -327,6 +337,57 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
+[node name="Path2D_13" type="Path2D" parent="chicken_paths" index="12"]
+
+position = Vector2( 21756.3, -1176.29 )
+curve = SubResource( 13 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_13" index="0"]
+
+position = Vector2( 157.76, -563.877 )
+rotation = 1.79965
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_14" type="Path2D" parent="chicken_paths" index="13"]
+
+position = Vector2( 21698, -1207.11 )
+curve = SubResource( 13 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_14" index="0"]
+
+position = Vector2( 157.76, -563.877 )
+rotation = 1.79965
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_15" type="Path2D" parent="chicken_paths" index="14"]
+
+position = Vector2( 21629.5, -1224.24 )
+curve = SubResource( 13 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_15" index="0"]
+
+position = Vector2( 157.76, -563.877 )
+rotation = 1.79965
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
 [node name="spaceship" parent="." index="2" instance=ExtResource( 2 )]
 
 editor/display_folded = true
@@ -360,7 +421,45 @@ _sections_unfolded = [ "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
 
 [node name="turrets" type="Node2D" parent="." index="3"]
 
-[node name="destination" parent="." index="4" instance=ExtResource( 3 )]
+editor/display_folded = true
+
+[node name="turret" parent="turrets" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 11491.8, -1723.92 )
+
+[node name="turret2" parent="turrets" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 12500.1, 1073.49 )
+
+[node name="turret3" parent="turrets" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 16382.5, 2727.32 )
+
+[node name="turret4" parent="turrets" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 19552.8, -1064.11 )
+
+[node name="turret5" parent="turrets" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 19115.4, 323.914 )
+
+[node name="turret6" parent="turrets" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 18887.3, 1528.14 )
+
+[node name="turret7" parent="turrets" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 18779.5, 3366.16 )
+
+[node name="turret8" parent="turrets" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 23276.8, 375.115 )
+
+[node name="turret9" parent="turrets" index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 21537.6, 7131.66 )
+
+[node name="destination" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 22596.3, -912.713 )
 
@@ -368,215 +467,215 @@ position = Vector2( 22596.3, -912.713 )
 
 editor/display_folded = true
 
-[node name="comet" parent="comets" index="0" instance=ExtResource( 4 )]
+[node name="comet" parent="comets" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 1422.08, -133.257 )
 
-[node name="comet2" parent="comets" index="1" instance=ExtResource( 4 )]
+[node name="comet2" parent="comets" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 2923.81, 404.641 )
 
-[node name="comet3" parent="comets" index="2" instance=ExtResource( 4 )]
+[node name="comet3" parent="comets" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 2512.29, -627.115 )
 
-[node name="comet4" parent="comets" index="3" instance=ExtResource( 4 )]
+[node name="comet4" parent="comets" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( -1482.2, 587.979 )
 
-[node name="comet5" parent="comets" index="4" instance=ExtResource( 4 )]
+[node name="comet5" parent="comets" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( -4373.38, 34.2852 )
 
-[node name="comet6" parent="comets" index="5" instance=ExtResource( 4 )]
+[node name="comet6" parent="comets" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( -3748.83, -1733.52 )
 
-[node name="comet7" parent="comets" index="6" instance=ExtResource( 4 )]
+[node name="comet7" parent="comets" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( -2235.08, -2167.53 )
 
-[node name="comet8" parent="comets" index="7" instance=ExtResource( 4 )]
+[node name="comet8" parent="comets" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( -731.916, -2347.49 )
 
-[node name="comet9" parent="comets" index="8" instance=ExtResource( 4 )]
+[node name="comet9" parent="comets" index="8" instance=ExtResource( 5 )]
 
 position = Vector2( 548.95, -2601.55 )
 
-[node name="comet10" parent="comets" index="9" instance=ExtResource( 4 )]
+[node name="comet10" parent="comets" index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 273.722, 5432.97 )
 
-[node name="comet11" parent="comets" index="10" instance=ExtResource( 4 )]
+[node name="comet11" parent="comets" index="10" instance=ExtResource( 5 )]
 
 position = Vector2( 3205.95, 6777.35 )
 
-[node name="comet12" parent="comets" index="11" instance=ExtResource( 4 )]
+[node name="comet12" parent="comets" index="11" instance=ExtResource( 5 )]
 
 position = Vector2( 6244.04, 6555.05 )
 
-[node name="comet13" parent="comets" index="12" instance=ExtResource( 4 )]
+[node name="comet13" parent="comets" index="12" instance=ExtResource( 5 )]
 
 position = Vector2( 6074.67, 4342.65 )
 
-[node name="comet14" parent="comets" index="13" instance=ExtResource( 4 )]
+[node name="comet14" parent="comets" index="13" instance=ExtResource( 5 )]
 
 position = Vector2( 2909.55, 2278.45 )
 
-[node name="comet15" parent="comets" index="14" instance=ExtResource( 4 )]
+[node name="comet15" parent="comets" index="14" instance=ExtResource( 5 )]
 
 position = Vector2( 6275.79, 2606.6 )
 
-[node name="comet16" parent="comets" index="15" instance=ExtResource( 4 )]
+[node name="comet16" parent="comets" index="15" instance=ExtResource( 5 )]
 
 position = Vector2( 5100.79, 1516.28 )
 
-[node name="comet17" parent="comets" index="16" instance=ExtResource( 4 )]
+[node name="comet17" parent="comets" index="16" instance=ExtResource( 5 )]
 
 position = Vector2( 5673.53, -2937.38 )
 
-[node name="comet18" parent="comets" index="17" instance=ExtResource( 4 )]
+[node name="comet18" parent="comets" index="17" instance=ExtResource( 5 )]
 
 position = Vector2( 5755.63, -1799.64 )
 
-[node name="comet19" parent="comets" index="18" instance=ExtResource( 4 )]
+[node name="comet19" parent="comets" index="18" instance=ExtResource( 5 )]
 
 position = Vector2( 3315.94, -3160.23 )
 
-[node name="comet20" parent="comets" index="19" instance=ExtResource( 4 )]
+[node name="comet20" parent="comets" index="19" instance=ExtResource( 5 )]
 
 position = Vector2( 4656.19, 7052.58 )
 
-[node name="comet21" parent="comets" index="20" instance=ExtResource( 4 )]
+[node name="comet21" parent="comets" index="20" instance=ExtResource( 5 )]
 
 position = Vector2( 19231.4, -577.646 )
 
-[node name="comet22" parent="comets" index="21" instance=ExtResource( 4 )]
+[node name="comet22" parent="comets" index="21" instance=ExtResource( 5 )]
 
 position = Vector2( 18801.5, 798.067 )
 
-[node name="comet23" parent="comets" index="22" instance=ExtResource( 4 )]
+[node name="comet23" parent="comets" index="22" instance=ExtResource( 5 )]
 
 position = Vector2( 19460.7, -1427.91 )
 
-[node name="comet24" parent="comets" index="23" instance=ExtResource( 4 )]
+[node name="comet24" parent="comets" index="23" instance=ExtResource( 5 )]
 
 position = Vector2( 19298.3, 5374.22 )
 
-[node name="comet27" parent="comets" index="24" instance=ExtResource( 4 )]
+[node name="comet27" parent="comets" index="24" instance=ExtResource( 5 )]
 
 position = Vector2( 20043.5, 5746.81 )
 
-[node name="comet28" parent="comets" index="25" instance=ExtResource( 4 )]
+[node name="comet28" parent="comets" index="25" instance=ExtResource( 5 )]
 
 position = Vector2( 20712.2, 4753.24 )
 
-[node name="comet29" parent="comets" index="26" instance=ExtResource( 4 )]
+[node name="comet29" parent="comets" index="26" instance=ExtResource( 5 )]
 
 position = Vector2( 20817.3, 5469.76 )
 
-[node name="comet30" parent="comets" index="27" instance=ExtResource( 4 )]
+[node name="comet30" parent="comets" index="27" instance=ExtResource( 5 )]
 
 position = Vector2( 21285.5, 3988.96 )
 
-[node name="comet32" parent="comets" index="28" instance=ExtResource( 4 )]
+[node name="comet32" parent="comets" index="28" instance=ExtResource( 5 )]
 
 position = Vector2( 22173.9, 4332.89 )
 
-[node name="comet33" parent="comets" index="29" instance=ExtResource( 4 )]
+[node name="comet33" parent="comets" index="29" instance=ExtResource( 5 )]
 
 position = Vector2( 22002, 5336.01 )
 
-[node name="comet34" parent="comets" index="30" instance=ExtResource( 4 )]
+[node name="comet34" parent="comets" index="30" instance=ExtResource( 5 )]
 
 position = Vector2( 22577.2, 2192.89 )
 
-[node name="comet35" parent="comets" index="31" instance=ExtResource( 4 )]
+[node name="comet35" parent="comets" index="31" instance=ExtResource( 5 )]
 
 position = Vector2( 21516.7, 2221.55 )
 
-[node name="comet36" parent="comets" index="32" instance=ExtResource( 4 )]
+[node name="comet36" parent="comets" index="32" instance=ExtResource( 5 )]
 
 position = Vector2( 18287.6, 5374.22 )
 
-[node name="comet37" parent="comets" index="33" instance=ExtResource( 4 )]
+[node name="comet37" parent="comets" index="33" instance=ExtResource( 5 )]
 
 position = Vector2( 17666.7, 3797.89 )
 
-[node name="comet38" parent="comets" index="34" instance=ExtResource( 4 )]
+[node name="comet38" parent="comets" index="34" instance=ExtResource( 5 )]
 
 position = Vector2( 11829.4, 4820.12 )
 
-[node name="comet40" parent="comets" index="35" instance=ExtResource( 4 )]
+[node name="comet40" parent="comets" index="35" instance=ExtResource( 5 )]
 
 position = Vector2( 13424.9, 5078.06 )
 
-[node name="comet41" parent="comets" index="36" instance=ExtResource( 4 )]
+[node name="comet41" parent="comets" index="36" instance=ExtResource( 5 )]
 
 position = Vector2( 11886.7, 3635.48 )
 
-[node name="comet42" parent="comets" index="37" instance=ExtResource( 4 )]
+[node name="comet42" parent="comets" index="37" instance=ExtResource( 5 )]
 
 position = Vector2( 13119.2, 3587.71 )
 
-[node name="comet43" parent="comets" index="38" instance=ExtResource( 4 )]
+[node name="comet43" parent="comets" index="38" instance=ExtResource( 5 )]
 
 position = Vector2( 13998.1, 4132.26 )
 
-[node name="comet44" parent="comets" index="39" instance=ExtResource( 4 )]
+[node name="comet44" parent="comets" index="39" instance=ExtResource( 5 )]
 
 position = Vector2( 12861.2, 2135.57 )
 
-[node name="comet45" parent="comets" index="40" instance=ExtResource( 4 )]
+[node name="comet45" parent="comets" index="40" instance=ExtResource( 5 )]
 
 position = Vector2( 12402.6, 6606.63 )
 
-[node name="comet46" parent="comets" index="41" instance=ExtResource( 4 )]
+[node name="comet46" parent="comets" index="41" instance=ExtResource( 5 )]
 
 position = Vector2( 17676.2, 2231.1 )
 
-[node name="comet25" parent="comets" index="42" instance=ExtResource( 4 )]
+[node name="comet25" parent="comets" index="42" instance=ExtResource( 5 )]
 
 position = Vector2( 9042.08, -1683 )
 
-[node name="comet26" parent="comets" index="43" instance=ExtResource( 4 )]
+[node name="comet26" parent="comets" index="43" instance=ExtResource( 5 )]
 
 position = Vector2( 10685.3, -880.503 )
 
-[node name="comet31" parent="comets" index="44" instance=ExtResource( 4 )]
+[node name="comet31" parent="comets" index="44" instance=ExtResource( 5 )]
 
 position = Vector2( 11124.8, -2581.04 )
 
-[node name="comet39" parent="comets" index="45" instance=ExtResource( 4 )]
+[node name="comet39" parent="comets" index="45" instance=ExtResource( 5 )]
 
-position = Vector2( 21629.9, -442.991 )
+position = Vector2( 21842.2, -508.063 )
 
-[node name="comet47" parent="comets" index="46" instance=ExtResource( 4 )]
+[node name="comet47" parent="comets" index="46" instance=ExtResource( 5 )]
 
-position = Vector2( 21793.3, -1734.71 )
+position = Vector2( 22125.5, -1618.27 )
 
-[node name="comet48" parent="comets" index="47" instance=ExtResource( 4 )]
+[node name="comet48" parent="comets" index="47" instance=ExtResource( 5 )]
 
 position = Vector2( 22937.2, -30.5752 )
 
-[node name="comet49" parent="comets" index="48" instance=ExtResource( 4 )]
+[node name="comet49" parent="comets" index="48" instance=ExtResource( 5 )]
 
 position = Vector2( 18453.9, 6462.48 )
 
-[node name="comet50" parent="comets" index="49" instance=ExtResource( 4 )]
+[node name="comet50" parent="comets" index="49" instance=ExtResource( 5 )]
 
 position = Vector2( 19316.1, 6359.01 )
 
-[node name="comet51" parent="comets" index="50" instance=ExtResource( 4 )]
+[node name="comet51" parent="comets" index="50" instance=ExtResource( 5 )]
 
 position = Vector2( 20454.3, 6703.89 )
 
-[node name="comet52" parent="comets" index="51" instance=ExtResource( 4 )]
+[node name="comet52" parent="comets" index="51" instance=ExtResource( 5 )]
 
 position = Vector2( 18910.9, 7298.82 )
 
-[node name="comet53" parent="comets" index="52" instance=ExtResource( 4 )]
+[node name="comet53" parent="comets" index="52" instance=ExtResource( 5 )]
 
 position = Vector2( 21532, 6505.59 )
 
