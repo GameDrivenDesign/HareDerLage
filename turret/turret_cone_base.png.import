@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chicken_wing.svg-b8898901431a299ecfa67b6e30555d3e.stex"
+path="res://.import/turret_cone_base.png-74437f931b9438f9bc2bce659faceab2.stex"
 
 [deps]
 
-source_file="res://chicken_wing/chicken_wing.svg"
-source_md5="d1e37584ae312c1f3810ef5bc2de816a"
+source_file="res://turret/turret_cone_base.png"
+source_md5="31435223cfe5b543e2930eec7a459002"
 
-dest_files=[ "res://.import/chicken_wing.svg-b8898901431a299ecfa67b6e30555d3e.stex" ]
-dest_md5="24877f12cdaf56f5bcd2deda8264d9d9"
+dest_files=[ "res://.import/turret_cone_base.png-74437f931b9438f9bc2bce659faceab2.stex" ]
+dest_md5="f9b31edafc55897c0e6c18de18505609"
 
 [params]
 
@@ -29,4 +29,4 @@ process/HDR_as_SRGB=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=0.1
+svg/scale=1.0
