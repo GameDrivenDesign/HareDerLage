@@ -1,15 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://spaceship.gd" type="Script" id=1]
+[ext_resource path="res://comet/Hase.svg" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[node name="spaceship" type="RigidBody2D" index="0"]
 
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[node name="spaceship" type="RigidBody2D"]
-
-position = Vector2( 68.1816, 37.7621 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -31,26 +26,14 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="Hase" type="Sprite" parent="." index="0"]
 
-position = Vector2( 0, 0.214638 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
-position = Vector2( 2.42073, -1.28156 )
-polygon = PoolVector2Array( 4.41105, -4.34765, 4.488, 2.03878, -2.32003, 9.21374, -8.74654, 2.65435, -8.58544, -4.17146 )
-uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
+build_mode = 0
+polygon = PoolVector2Array( -7.1813, 23.95, 7.27255, 23.95, 13.0651, 13.6889, 9.20935, -23.9015, -9.15359, -23.9015, -12.9139, 13.2004 )
 
 

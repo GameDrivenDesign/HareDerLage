@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map.svg-20305727bb21e4723593f216484fe7fc.stex"
+path="res://.import/Komet1.svg-29d2524321af685734eb3285a6ebb74b.stex"
 
 [deps]
 
-source_file="res://comet/map.svg"
-source_md5="f025009b6ff986ccad50dd8f9bf06754"
+source_file="res://comet/Komet1.svg"
+source_md5="334793f436edffc6b804f2738077bea6"
 
-dest_files=[ "res://.import/map.svg-20305727bb21e4723593f216484fe7fc.stex" ]
-dest_md5="50cc52d25abe169837b762a377910fa6"
+dest_files=[ "res://.import/Komet1.svg-29d2524321af685734eb3285a6ebb74b.stex" ]
+dest_md5="9fda007abb91c319c11846cacf6e58d5"
 
 [params]
 

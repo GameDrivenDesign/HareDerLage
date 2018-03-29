@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map.svg-20305727bb21e4723593f216484fe7fc.stex"
+path="res://.import/Komet2.svg-af148852b3d09f2541a405b8b1c31381.stex"
 
 [deps]
 
-source_file="res://comet/map.svg"
-source_md5="f025009b6ff986ccad50dd8f9bf06754"
+source_file="res://comet/Komet2.svg"
+source_md5="fc9691e477247b1effd4d1fbc4e842c4"
 
-dest_files=[ "res://.import/map.svg-20305727bb21e4723593f216484fe7fc.stex" ]
-dest_md5="50cc52d25abe169837b762a377910fa6"
+dest_files=[ "res://.import/Komet2.svg-af148852b3d09f2541a405b8b1c31381.stex" ]
+dest_md5="5e310fb2957af446cbe245673065391c"
 
 [params]
 
@@ -29,4 +29,4 @@ process/HDR_as_SRGB=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=1.0
+svg/scale=0.1
