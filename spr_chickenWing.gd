@@ -5,7 +5,6 @@ const PROJECTILE_SPEED = Vector2(300, 0)
 
 var cooldown = 0
 var speed = 50
-var player = null
 var target_ref = null
 var target_candidate_ref = null
 var old_delta = Vector2(0.0, 0.0)
@@ -103,7 +102,7 @@ func shoot_target(target):
 
 func _on_vision_area_body_entered(body):
 	if body is preload("res://spaceship.gd"):
-		target_candidate_ref = weakref(player)
+		target_candidate_ref = weakref(body)
 
 func _on_vision_area_body_exited(body):
 	if body is preload("res://spaceship.gd"):
