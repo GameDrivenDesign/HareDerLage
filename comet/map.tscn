@@ -11,7 +11,7 @@
 
 closed = true
 cull_mode = 0
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -24,13 +24,13 @@ closed = true
 cull_mode = 0
 polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -11, -4 )
 
-[sub_resource type="OccluderPolygon2D" id=4]
+[sub_resource type="OccluderPolygon2D" id=5]
 
 closed = true
 cull_mode = 0
 polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -1, 16, -11, 9, -11, -5 )
 
-[sub_resource type="OccluderPolygon2D" id=5]
+[sub_resource type="OccluderPolygon2D" id=8]
 
 closed = true
 cull_mode = 0
@@ -45,10 +45,9 @@ texture = ExtResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="mid" index="0"]
 
-position = Vector2( -16, -16 )
 occluder = SubResource( 1 )
 light_mask = 1
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="mid" type="StaticBody2D" parent="mid" index="1"]
 
@@ -70,7 +69,6 @@ texture = ExtResource( 2 )
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="mid_stones" index="0"]
 
-position = Vector2( -16, -16 )
 occluder = SubResource( 1 )
 light_mask = 1
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -96,7 +94,6 @@ texture = ExtResource( 3 )
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="edge" index="0"]
 
-position = Vector2( -16, -16 )
 occluder = SubResource( 1 )
 light_mask = 1
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -148,7 +145,7 @@ texture = ExtResource( 5 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="corner2" index="0"]
 
-occluder = SubResource( 4 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 [node name="corner2" type="StaticBody2D" parent="corner2" index="1"]
@@ -173,7 +170,7 @@ texture = ExtResource( 6 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="corner3" index="0"]
 
-occluder = SubResource( 5 )
+occluder = SubResource( 8 )
 light_mask = 1
 
 [node name="corner3" type="StaticBody2D" parent="corner3" index="1"]
