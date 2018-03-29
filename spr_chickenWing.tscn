@@ -141,14 +141,14 @@ randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
+local_coords = false
 draw_order = 0
 process_material = SubResource( 1 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Material", "Process Material", "Transform", "Z Index" ]
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Transform", "Z Index" ]
 
 [node name="vision_area" type="Area2D" parent="." index="4"]
 
