@@ -2,13 +2,12 @@ extends RigidBody2D
 
 var tween
 
-var torque = 2500
+var torque = 5000
 var speed = 200
 var handling = 20
 var fire_intervall = 0.6
 # Remaining space ship health
 var health = 10000000000.0
-#var impulse_fuel = 100
 
 # Whether or not the player is still alive
 var alive = true
@@ -51,6 +50,9 @@ func die():
 	yield(tween, "tween_completed")
 	queue_free()
 
+func _draw():
+	draw_line(Vector2(), linear_velocity.rotated(-rotation), Color(1, 0, 0, 1), 4, false)
+
 func _process(delta):
 	if fire_in > 0:
 		fire_in -= delta
@@ -58,17 +60,17 @@ func _process(delta):
 			fire_in = 0
 
 func _physics_process(delta):
-	#var angle = Vector2(0, 1).rotated(transform.get_rotation()).angle_to(linear_velocity)
+	# remove to disable debug draw
+	update()
 	
-	if Input.is_action_pressed("up"):
-		#applied_force = Vector2(0, speed + handling * abs(angle)).rotated(transform.get_rotation())
+	if Input.is_action_pressed("down") and linear_velocity.dot(Vector2(0, 1).rotated(rotation)) > 0:
+		applied_force = Vector2(0, speed * 2).rotated(rotation + PI)
+	elif Input.is_action_pressed("up"):
 		applied_force = Vector2(0, speed).rotated(rotation)
 	else:
 		applied_force = Vector2()
 		
 	if Input.is_action_just_pressed("up"):
-		#if impulse_fuel >= 100:
-			#impulse_fuel = 0
 		apply_impulse(Vector2(), Vector2(0, speed).rotated(rotation)/3)
 	
 	$exhaust.emitting = Input.is_action_pressed("up")

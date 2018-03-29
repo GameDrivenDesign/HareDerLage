@@ -4,7 +4,7 @@
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 [ext_resource path="res://chicken_wing/light_cone.png" type="Texture" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 1
@@ -79,7 +79,7 @@ _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Initial Velo
 
 rotation = 1.5708
 input_pickable = false
-collision_layer = 2
+collision_layer = 3
 collision_mask = 1
 mode = 0
 mass = 1.0
@@ -114,8 +114,22 @@ polygon = PoolVector2Array( 27.3909, 0.294579, -4.97505, -19.5321, -13.4195, -11
 
 [node name="exhaust" type="Particles2D" parent="." index="2"]
 
-light_mask = 0
-material = SubResource( 8 )
+polygon = PoolVector2Array( -0.145988, 1.15222, 154.594, 81.3775, 153.973, 1.94663, 154.053, -79.6499 )
+uv = PoolVector2Array(  )
+color = Color( 0.138428, 0.424244, 0.632813, 0.458549 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="exhaust" type="Particles2D" parent="." index="3"]
+
+material = SubResource( 1 )
 position = Vector2( -26.6919, -0.52328 )
 rotation = 3.14159
 z_index = 2
@@ -184,6 +198,17 @@ shadow_filter_smooth = 3.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
+[node name="chicken_memory" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
 [connection signal="body_entered" from="vision_area" to="." method="_on_vision_area_body_entered"]
+
+[connection signal="body_exited" from="vision_area" to="." method="_on_vision_area_body_exited"]
+
+[connection signal="timeout" from="chicken_memory" to="." method="_on_chicken_memory_timeout"]
 
 
