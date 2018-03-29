@@ -7,10 +7,10 @@ path="res://.import/background.png-5068f93794c9dffb9c3a704f116cd9da.stex"
 [deps]
 
 source_file="res://game/background.png"
-source_md5="3ef29a8435351450397a7a95e8d3d837"
+source_md5="b00149399f551659224f959fbf850438"
 
 dest_files=[ "res://.import/background.png-5068f93794c9dffb9c3a704f116cd9da.stex" ]
-dest_md5="5758e7270b854db170c39db24c153e97"
+dest_md5="1dec4efe99a4cda0f14219d12aaf8866"
 
 [params]
 
