@@ -15,6 +15,10 @@ func spawn_chicken(pos):
 	
 	add_child(chicken)
 
+func win():
+	print('You have won!!')
+	get_tree().paused = true
+
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
