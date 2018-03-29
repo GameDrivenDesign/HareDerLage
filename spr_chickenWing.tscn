@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://spr_chickenWing.gd" type="Script" id=1]
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 [ext_resource path="res://chicken_wing/light_cone.png" type="Texture" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=4]
 
 render_priority = 0
 blend_mode = 1
@@ -13,7 +13,7 @@ light_mode = 0
 [sub_resource type="Gradient" id=2]
 
 offsets = PoolRealArray( 0, 1 )
-colors = PoolColorArray( 0.164062, 0.0220514, 0.151858, 1, 0.0432943, 0.519531, 0.151192, 0.2 )
+colors = PoolColorArray( 0.324219, 0.0427062, 0.234047, 1, 0.109375, 0.847656, 0.363159, 0 )
 
 [sub_resource type="GradientTexture" id=3]
 
@@ -21,33 +21,20 @@ flags = 4
 gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="Curve" id=4]
-
-min_value = 0.0
-max_value = 1.0
-bake_resolution = 100
-_data = [ Vector2( 0.000744913, 1 ), 0.0, 4.05887, 0, 0, Vector2( 1, 0.425781 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=5]
-
-flags = 4
-width = 2048
-curve = SubResource( 4 )
-
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=1]
 
 render_priority = 0
 trail_divisor = 1
 emission_shape = 2
-emission_box_extents = Vector3( 0.1, 6, 0.1 )
+emission_box_extents = Vector3( 1, 3, 1 )
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 15.0
+spread = 40.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 100.0
-initial_velocity_random = 0.8
+initial_velocity = 50.0
+initial_velocity_random = 0.3
 angular_velocity = 0.0
 angular_velocity_random = 0.0
 orbit_velocity = 0.0
@@ -64,7 +51,6 @@ angle = 0.0
 angle_random = 0.0
 scale = 2.0
 scale_random = 0.0
-scale_curve = SubResource( 5 )
 color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -73,7 +59,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Initial Velocity", "Scale", "Spread" ]
+_sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "Spread" ]
 
 [node name="spr_chickenWing" type="RigidBody2D" index="0"]
 
@@ -112,48 +98,7 @@ visible = false
 build_mode = 0
 polygon = PoolVector2Array( 27.3909, 0.294579, -4.97505, -19.5321, -13.4195, -11.9863, -21.6883, -6.4897, -21.6883, 5.90452, -11.2467, 12.481, -4.84554, 19.8053 )
 
-[node name="exhaust" type="Particles2D" parent="." index="2"]
-
-polygon = PoolVector2Array( -0.145988, 1.15222, 154.594, 81.3775, 153.973, 1.94663, 154.053, -79.6499 )
-uv = PoolVector2Array(  )
-color = Color( 0.138428, 0.424244, 0.632813, 0.458549 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-
-[node name="exhaust" type="Particles2D" parent="." index="3"]
-
-material = SubResource( 1 )
-position = Vector2( -26.6919, -0.52328 )
-rotation = 3.14159
-z_index = 2
-emitting = true
-amount = 1000
-lifetime = 1.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = false
-draw_order = 0
-process_material = SubResource( 6 )
-texture = null
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Material", "Process Material", "Transform", "Visibility", "Z Index" ]
-
-[node name="vision_area" type="Area2D" parent="." index="3"]
+[node name="vision_area" type="Area2D" parent="." index="2"]
 
 visible = false
 input_pickable = true
@@ -171,7 +116,7 @@ _sections_unfolded = [ "Collision" ]
 build_mode = 0
 polygon = PoolVector2Array( 11.3734, 15.4515, 181.53, 109.075, 204.587, 52.6305, 206.383, -50.9511, 180.637, -104.837, 12.9621, -12.7508, -6.89865, -24.2699, -27.1712, -6.19604, -27.1565, 4.3296, -5.3096, 26.9708 )
 
-[node name="Light2D" type="Light2D" parent="." index="4"]
+[node name="Light2D" type="Light2D" parent="." index="3"]
 
 position = Vector2( -3.86568, -0.00924809 )
 rotation = -1.5708
@@ -198,12 +143,38 @@ shadow_filter_smooth = 3.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 
-[node name="chicken_memory" type="Timer" parent="." index="5"]
+[node name="chicken_memory" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 3.0
 one_shot = true
 autostart = false
+
+[node name="exhaust" type="Particles2D" parent="." index="5"]
+
+light_mask = 0
+material = SubResource( 4 )
+position = Vector2( -21.6957, 0.774935 )
+rotation = -3.14159
+emitting = true
+amount = 800
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 1 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures" ]
 
 [connection signal="body_entered" from="vision_area" to="." method="_on_vision_area_body_entered"]
 
