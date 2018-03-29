@@ -8,6 +8,7 @@ var handling = 20
 var fire_intervall = 0.6
 # Remaining space ship health
 var health = 100.0
+#var impulse_fuel = 100
 
 # Whether or not the player is still alive
 var alive = true
@@ -63,6 +64,11 @@ func _physics_process(delta):
 		applied_force = Vector2(0, speed).rotated(rotation)
 	else:
 		applied_force = Vector2()
+		
+	if Input.is_action_just_pressed("up"):
+		#if impulse_fuel >= 100:
+			#impulse_fuel = 0
+		apply_impulse(Vector2(), Vector2(0, speed).rotated(rotation)/3)
 	
 	$exhaust.emitting = Input.is_action_pressed("up")
 	
@@ -81,3 +87,5 @@ func _physics_process(delta):
 			projectile.direction = Vector2(0, projectile.proj_basespeed).rotated(transform.get_rotation()) + linear_velocity
 			get_parent().add_child(projectile)
 			projectile.add_collision_exception_with(self)
+	
+	#impulse_fuel += 1
