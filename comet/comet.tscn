@@ -1,14 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://comet/comet.gd" type="Script" id=1]
-[ext_resource path="res://comet/comet.png" type="Texture" id=2]
+[ext_resource path="res://comet/Komet2.svg" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5, -7, 0 )
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 160.0
@@ -36,11 +31,10 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
-position = Vector2( -0.536236, 2.2639 )
-scale = Vector2( 3.72668, 4.29644 )
-shape = SubResource( 1 )
+build_mode = 0
+polygon = PoolVector2Array( -11.6454, -22.8941, -9.66159, -31.7741, 0.540985, -34.9861, 7.72061, -33.3801, 11.4993, -27.6175, 20.2849, -27.5231, 25.3862, -10.8966, 32.7547, -7.59023, 33.5105, 2.99023, 38.2339, 12.9094, 36.5335, 23.9622, 27.8424, 29.5359, 24.0636, 43.0449, -0.876038, 50.4134, -7.96115, 44.6508, -33.751, 35.8652, -30.3502, 22.6397, -39.0413, 2.70683, -25.7212, -14.1086, -22.6038, -21.9494 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
@@ -60,6 +54,6 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 

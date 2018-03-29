@@ -22,7 +22,7 @@ func _physics_process(dt):
 		print(delta)
 		old_delta = delta
 	else:
-		var follow = get_node("../chicken_paths/Path2D_" + str(chicken_id) + "/PathFollow2D_" + str(chicken_id))
+		var follow = get_node("../chicken_paths/Path2D_" + str(chicken_id) + "/PathFollow2D")
 		follow.loop = true
 		follow.cubic_interp = true
 		follow.rotate = true

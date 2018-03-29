@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 
-var proj_speed = 3
-var direction
+var proj_basespeed = 200
+var direction #auch Geschwindigkeit!
 var proj_damage = 10
 
 var has_collided
@@ -10,7 +10,7 @@ var has_collided
 var tween
 
 func _ready():
-	direction = Vector2(0, proj_speed).rotated(transform.get_rotation())
+	#direction = Vector2(0, proj_speed).rotated(transform.get_rotation())
 	has_collided = false
 	tween = Tween.new()
 	add_child(tween)
@@ -18,7 +18,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if has_collided == false:
-		var collided = move_and_collide(direction)
+		var collided = move_and_collide(direction*delta)
 		if collided:
 			has_collided = true
 			var explosion = preload("res://explosion/explosion.tscn").instance()
@@ -32,4 +32,3 @@ func _physics_process(delta):
 			if collided.collider.has_method("take_damage"):
 				collided.collider.take_damage (proj_damage)
 				
-				#TO DO: Wenn Projektile mit Projektilen kollidieren, stürzt das Spiel ab
