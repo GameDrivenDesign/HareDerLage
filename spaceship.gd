@@ -41,7 +41,7 @@ func die():
 	alive = false
 	
 	var explosion = preload("res://explosion/explosion.tscn").instance()
-	explosion.position = $CollisionShape2D.position
+	explosion.position = position
 	add_child(explosion)
 
 	tween.interpolate_property(self, "scale", Vector2(1, 1), Vector2(0.1, 0.1), 0.5, Tween.TRANS_BACK, Tween.EASE_IN)

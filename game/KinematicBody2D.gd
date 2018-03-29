@@ -28,6 +28,5 @@ func _physics_process(delta):
 			yield(tween, "tween_completed")
 			queue_free()
 			
-			if collided.collider.has_method("take_damage"):
+			if collided.collider and collided.collider.has_method("take_damage"):
 				collided.collider.take_damage (proj_damage)
-				
