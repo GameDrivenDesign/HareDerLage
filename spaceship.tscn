@@ -61,6 +61,12 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Initial Velocity", "Scale" ]
 
+[sub_resource type="OccluderPolygon2D" id=4]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -7.1813, 23.95, 7.27255, 23.95, 13.0651, 13.6889, 9.20935, -23.9015, -9.15359, -23.9015, -12.9139, 13.2004 )
+
 [node name="spaceship" type="RigidBody2D" index="0"]
 
 input_pickable = false
@@ -118,5 +124,10 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time" ]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="3"]
+
+occluder = SubResource( 4 )
+light_mask = 1
 
 
