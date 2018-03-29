@@ -62,10 +62,8 @@ func _physics_process(dt):
 				$chicken_memory.stop()
 			elif $chicken_memory.is_stopped():
 				$chicken_memory.start()
-				print("timer start")
 		elif $chicken_memory.is_stopped():
 			$chicken_memory.start()
-			print("timer starteted")
 
 		rotation = (target.position - position).angle()
 		old_delta = delta
@@ -113,4 +111,3 @@ func _on_vision_area_body_exited(body):
 
 func _on_chicken_memory_timeout():
 	target_ref = null
-	print("wo isser hin?")

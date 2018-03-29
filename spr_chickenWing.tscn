@@ -74,7 +74,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Initial Velocity", "Scale", "Spread" ]
 
-[node name="spr_chickenWing" type="RigidBody2D"]
+[node name="spr_chickenWing" type="RigidBody2D" index="0"]
 
 rotation = 1.5708
 input_pickable = false
@@ -170,7 +170,7 @@ polygon = PoolVector2Array( 11.3734, 15.4515, 181.53, 109.075, 204.587, 52.6305,
 [node name="chicken_memory" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 autostart = false
 
