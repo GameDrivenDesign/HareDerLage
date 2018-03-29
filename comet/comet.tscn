@@ -1,14 +1,34 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://comet/comet.gd" type="Script" id=1]
 [ext_resource path="res://comet/Komet2.svg" type="Texture" id=2]
+[ext_resource path="res://comet/Kreis.svg" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 160.0
 
-[node name="comet" type="RigidBody2D"]
+[sub_resource type="Animation" id=2]
+
+resource_name = "pulse"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ring:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.6, 0.6 ), Vector2( 0.1, 0.1 ) ]
+}
+
+[node name="comet" type="RigidBody2D" index="0"]
 
 position = Vector2( 435.204, 159.221 )
 input_pickable = false
@@ -38,7 +58,9 @@ polygon = PoolVector2Array( -11.6454, -22.8941, -9.66159, -31.7741, 0.540985, -3
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+z_index = 1
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
@@ -55,5 +77,23 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 1 )
+
+[node name="ring" type="Sprite" parent="." index="3"]
+
+rotation = 0.00260454
+scale = Vector2( 0.199293, 0.199293 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/pulse = SubResource( 2 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 
