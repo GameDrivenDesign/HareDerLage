@@ -3,37 +3,37 @@
 [ext_resource path="res://spr_chickenWing.gd" type="Script" id=1]
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=2]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.164062, 0.0220514, 0.151858, 1, 0.0432943, 0.519531, 0.151192, 0.2 )
 
-[sub_resource type="GradientTexture" id=4]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
-gradient = SubResource( 3 )
+gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=4]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0.000744913, 1 ), 0.0, 4.05887, 0, 0, Vector2( 1, 0.425781 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
+[sub_resource type="CurveTexture" id=5]
 
 flags = 4
 width = 2048
-curve = SubResource( 5 )
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -63,8 +63,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 2.0
 scale_random = 0.0
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -78,7 +78,7 @@ _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Initial Velo
 
 rotation = 1.5708
 input_pickable = false
-collision_layer = 2
+collision_layer = 3
 collision_mask = 1
 mode = 0
 mass = 1.0
@@ -126,7 +126,7 @@ invert_border = 100.0
 
 [node name="exhaust" type="Particles2D" parent="." index="3"]
 
-material = SubResource( 2 )
+material = SubResource( 1 )
 position = Vector2( -26.6919, -0.52328 )
 rotation = 3.14159
 z_index = 2
@@ -143,7 +143,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 1 )
+process_material = SubResource( 6 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -167,6 +167,17 @@ _sections_unfolded = [ "Collision" ]
 build_mode = 0
 polygon = PoolVector2Array( 11.3734, 15.4515, 181.53, 109.075, 204.587, 52.6305, 206.383, -50.9511, 180.637, -104.837, 12.9621, -12.7508, -6.89865, -24.2699, -25.9649, -6.39522, -27.1565, 4.3296, -5.3096, 26.9708 )
 
+[node name="chicken_memory" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
 [connection signal="body_entered" from="vision_area" to="." method="_on_vision_area_body_entered"]
+
+[connection signal="body_exited" from="vision_area" to="." method="_on_vision_area_body_exited"]
+
+[connection signal="timeout" from="chicken_memory" to="." method="_on_chicken_memory_timeout"]
 
 
