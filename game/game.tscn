@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://comet/comet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://spaceship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/background.png" type="Texture" id=5]
+[ext_resource path="res://destination/destination.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -303,5 +304,9 @@ _sections_unfolded = [ "Motion", "Transform" ]
 position = Vector2( 38.087, 306.648 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="destination" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 2088.2, 94.3271 )
 
 
