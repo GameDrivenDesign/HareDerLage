@@ -73,7 +73,7 @@ can_sleep = true
 linear_velocity = Vector2( 0, 0 )
 linear_damp = 0.15
 angular_velocity = 0.0
-angular_damp = -1.0
+angular_damp = 5.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 

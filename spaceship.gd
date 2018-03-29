@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var tween
 
-var torque = 2500
+var torque = 5000
 var speed = 200
 var handling = 20
 var fire_intervall = 0.6

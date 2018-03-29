@@ -89,6 +89,7 @@ _sections_unfolded = [ "Offset" ]
 [node name="trail" type="Particles2D" parent="." index="2"]
 
 material = SubResource( 3 )
+scale = Vector2( 0.2, 0.2 )
 emitting = true
 amount = 400
 lifetime = 0.3
@@ -107,6 +108,6 @@ texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Material", "Process Material", "Textures", "Time" ]
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Transform" ]
 
 
