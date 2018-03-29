@@ -6,8 +6,8 @@ extends Node2D
 
 
 func _ready():
-	spawn_chicken(1)
-	spawn_chicken(2)
+	for i in range(1,10):
+		spawn_chicken(i)
 
 func spawn_chicken(id):
 	var chicken = preload("res://spr_chickenWing.tscn").instance()

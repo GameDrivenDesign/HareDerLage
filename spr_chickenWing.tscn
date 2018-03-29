@@ -3,7 +3,7 @@
 [ext_resource path="res://spr_chickenWing.gd" type="Script" id=1]
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 
-[node name="spr_chickenWing" type="RigidBody2D"]
+[node name="spr_chickenWing" type="RigidBody2D" index="0"]
 
 rotation = 1.5708
 input_pickable = false
@@ -66,7 +66,7 @@ audio_bus_name = "Master"
 [node name="vision_area" type="CollisionPolygon2D" parent="vision_area" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 11.7704, 11.877, 125.771, 81.7867, 153.576, 2.74107, 128.949, -81.4684, 10.976, -11.1614 )
+polygon = PoolVector2Array( 11.3734, 15.4515, 125.374, 77.4166, 153.576, 2.74107, 128.154, -76.3056, 12.9621, -12.7508, -6.89865, -24.2699, -25.9649, -6.39522, -27.1565, 4.3296, -5.3096, 26.9708 )
 
 [connection signal="body_entered" from="vision_area" to="." method="_on_vision_area_body_entered"]
 
