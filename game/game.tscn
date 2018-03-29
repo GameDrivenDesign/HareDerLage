@@ -5,7 +5,7 @@
 [ext_resource path="res://game/background.png" type="Texture" id=3]
 [ext_resource path="res://level_heist/level_heist.tscn" type="PackedScene" id=4]
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -23,7 +23,6 @@ position = Vector2( 355.461, 223.679 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -41,15 +40,19 @@ _sections_unfolded = [ "Scroll" ]
 
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1024, 600 )
+motion_mirroring = Vector2( 4000, 4000 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
-position = Vector2( 512, 300 )
+position = Vector2( 2000, 2000 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+region_enabled = true
+region_rect = Rect2( 0, 0, 4000, 4000 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="level" parent="." index="2" instance=ExtResource( 4 )]
+
+_sections_unfolded = [ "Transform" ]
 
 
