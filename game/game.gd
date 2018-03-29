@@ -1,7 +1,9 @@
 extends Node2D
 
 func _ready():
-	for i in range(1,10):
+	var chicken_count = $level/chicken_paths.get_child_count()
+	for i in range(1, chicken_count + 1):
+		print(i)
 		spawn_chicken(i)
 
 	$level/spaceship.connect("health_changed", $hud_layer/hud, "set_health_percentage")

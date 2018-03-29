@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://comet/map.tres" type="TileSet" id=1]
 [ext_resource path="res://spaceship.tscn" type="PackedScene" id=2]
@@ -97,7 +97,70 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 157.76, -563.877, 0, 0, 0, 0, -181.295, 891.669, 0, 0, 0, 0, -335.41, 984.139, 0, 0, 0, 0, -438.158, 881.395, 0, 0, 0, 0, -75.127, -646.072, 0, 0, 0, 0, 72.1406, -724.843, 0, 0, 0, 0, 157.76, -570.726 )
 }
 
-[node name="level_heist" type="Node2D" index="0"]
+[sub_resource type="Curve2D" id=14]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1643.15, -1184.55, 0, 0, 0, 0, 1854.79, -944.311, 0, 0, 0, 0, 3204.72, -1035.83, 0, 0, 0, 0, 3713.8, -1350.43, 0, 0, 0, 0, 3736.68, -1619.27, 0, 0, 0, 0, 3622.28, -1876.68, 0, 0, 0, 0, 3485, -2094.04, 0, 0, 0, 0, 3216.16, -2254.2, 0, 0, 0, 0, 2832.92, -2025.4, 0, 0, 0, 0, 2655.59, -1624.99, 0, 0, 0, 0, 1883.39, -1373.31, 0, 0, 0, 0, 1648.87, -1184.55 )
+}
+
+[sub_resource type="Curve2D" id=15]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 3027.11, 1754.26, 0, 0, 0, 0, 3509.94, 1797.37, 0, 0, 0, 0, 4320.41, 1659.42, 0, 0, 0, 0, 4329.03, 1392.13, 0, 0, 0, 0, 4398.01, 952.409, 0, 0, 0, 0, 3880.69, 745.481, 0, 0, 0, 0, 3371.99, 1150.72, 0, 0, 0, 0, 2932.27, 1305.91, 0, 0, 0, 0, 3018.49, 1754.26 )
+}
+
+[sub_resource type="Curve2D" id=16]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 3622.03, 2332.27, 0, 0, 0, 0, 3570.3, 2806.48, 0, 0, 0, 0, 3846.2, 3435.89, 0, 0, 0, 0, 4130.73, 3591.08, 0, 0, 0, 0, 4234.19, 3392.78, 0, 0, 0, 0, 4199.7, 3142.74, 0, 0, 0, 0, 4044.51, 2884.08, 0, 0, 0, 0, 3975.53, 2530.57, 0, 0, 0, 0, 3872.07, 2340.89, 0, 0, 0, 0, 3622.03, 2323.64 )
+}
+
+[sub_resource type="Curve2D" id=17]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 12333.9, 4016.89, 0, 0, 0, 0, 12746.7, 3942.79, 0, 0, 0, 0, 13011.4, 4419.14, 0, 0, 0, 0, 12884.3, 4863.73, 0, 0, 0, 0, 12947.9, 5498.87, 0, 0, 0, 0, 12767.9, 5964.64, 0, 0, 0, 0, 12482.1, 5879.95, 0, 0, 0, 0, 12408, 5572.97, 0, 0, 0, 0, 12524.4, 5033.1, 0, 0, 0, 0, 12471.5, 4535.58, 0, 0, 0, 0, 12333.9, 4038.06 )
+}
+
+[sub_resource type="Curve2D" id=18]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 19993.9, -2338.72, 0, 0, 0, 0, 20110.4, -1936.47, 0, 0, 0, 0, 19358.8, -1798.85, 0, 0, 0, 0, 19009.5, -2169.35, 0, 0, 0, 0, 19337.6, -2465.74, 0, 0, 0, 0, 19983.4, -2338.72 )
+}
+
+[sub_resource type="Curve2D" id=19]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 19962.2, -592.096, 0, 0, 0, 0, 19962.2, -94.5732, 0, 0, 0, 0, 19750.5, 106.553, 0, 0, 0, 0, 19475.3, 64.2107, 0, 0, 0, 0, 19380, -242.771, 0, 0, 0, 0, 19581.1, -549.753, 0, 0, 0, 0, 19792.8, -634.438, 0, 0, 0, 0, 19951.6, -592.096 )
+}
+
+[sub_resource type="Curve2D" id=20]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 20381, -155.44, 0, 0, 0, 0, 20338.7, 45.6858, 0, 0, 0, 0, 20476.3, 405.596, 0, 0, 0, 0, 20539.8, 733.749, 0, 0, 0, 0, 20772.7, 786.677, 0, 0, 0, 0, 20889.1, 395.01, 0, 0, 0, 0, 20825.6, 66.8569, 0, 0, 0, 0, 20698.6, -176.612, 0, 0, 0, 0, 20391.6, -166.026 )
+}
+
+[sub_resource type="Curve2D" id=21]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 14368.4, -2601.61, 0, 0, 0, 0, 14760.1, -2231.11, 0, 0, 0, 0, 14474.3, -1871.2, 0, 0, 0, 0, 14050.8, -1892.37, 0, 0, 0, 0, 13818, -2220.53, 0, 0, 0, 0, 13987.3, -2516.92, 0, 0, 0, 0, 14357.8, -2601.61 )
+}
+
+[sub_resource type="Curve2D" id=22]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2333.16, 372.09, 0, 0, 0, 0, 1740.37, 477.946, 0, 0, 0, 0, 1084.07, 456.775, 0, 0, 0, 0, 364.246, 996.64, 0, 0, 0, 0, 141.948, 1420.06, 0, 0, 0, 0, 25.5068, 2034.03, 0, 0, 0, 0, 290.146, 2213.98, 0, 0, 0, 0, 808.84, 2404.52, 0, 0, 0, 0, 1528.66, 2489.21, 0, 0, 0, 0, 2057.94, 2383.35, 0, 0, 0, 0, 2523.71, 2362.18, 0, 0, 0, 0, 2841.27, 2023.44, 0, 0, 0, 0, 2883.62, 1568.26, 0, 0, 0, 0, 2703.66, 1197.77, 0, 0, 0, 0, 2650.73, 795.514, 0, 0, 0, 0, 2333.16, 372.09 )
+}
+
+[node name="level_heist" type="Node2D"]
 
 [node name="TileMap2" type="TileMap" parent="." index="0"]
 
@@ -345,7 +408,7 @@ curve = SubResource( 13 )
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_13" index="0"]
 
 position = Vector2( 157.76, -563.877 )
-rotation = 1.79965
+rotation = 1.79966
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -362,7 +425,7 @@ curve = SubResource( 13 )
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_14" index="0"]
 
 position = Vector2( 157.76, -563.877 )
-rotation = 1.79965
+rotation = 1.79966
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -379,7 +442,151 @@ curve = SubResource( 13 )
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_15" index="0"]
 
 position = Vector2( 157.76, -563.877 )
-rotation = 1.79965
+rotation = 1.79966
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_16" type="Path2D" parent="chicken_paths" index="15"]
+
+curve = SubResource( 14 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_16" index="0"]
+
+position = Vector2( 1643.15, -1184.55 )
+rotation = 0.848579
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_17" type="Path2D" parent="chicken_paths" index="16"]
+
+curve = SubResource( 15 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_17" index="0"]
+
+position = Vector2( 3027.11, 1754.26 )
+rotation = 0.0890507
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_18" type="Path2D" parent="chicken_paths" index="17"]
+
+curve = SubResource( 16 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_18" index="0"]
+
+position = Vector2( 3622.03, 2332.27 )
+rotation = 1.67954
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_19" type="Path2D" parent="chicken_paths" index="18"]
+
+curve = SubResource( 17 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_19" index="0"]
+
+position = Vector2( 12333.9, 4016.89 )
+rotation = -0.177675
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_20" type="Path2D" parent="chicken_paths" index="19"]
+
+curve = SubResource( 18 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_20" index="0"]
+
+position = Vector2( 19993.9, -2338.72 )
+rotation = 1.28963
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_21" type="Path2D" parent="chicken_paths" index="20"]
+
+curve = SubResource( 19 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_21" index="0"]
+
+position = Vector2( 19962.2, -592.096 )
+rotation = 1.5708
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_22" type="Path2D" parent="chicken_paths" index="21"]
+
+curve = SubResource( 20 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_22" index="0"]
+
+position = Vector2( 20381, -155.44 )
+rotation = 1.77963
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_23" type="Path2D" parent="chicken_paths" index="22"]
+
+curve = SubResource( 21 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_23" index="0"]
+
+position = Vector2( 14368.4, -2601.61 )
+rotation = 0.757241
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Path2D_24" type="Path2D" parent="chicken_paths" index="23"]
+
+curve = SubResource( 22 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_24" index="0"]
+
+position = Vector2( 2333.16, 372.09 )
+rotation = 2.96489
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
