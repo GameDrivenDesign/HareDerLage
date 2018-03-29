@@ -8,8 +8,6 @@ func _ready():
 
 func spawn_chicken(id):
 	var chicken = preload("res://spr_chickenWing.tscn").instance()
-	#chicken.position = pos
-	chicken.player = $level/spaceship
 	chicken.chicken_id = id
 	
 	$level.add_child(chicken)

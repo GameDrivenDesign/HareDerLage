@@ -1,11 +1,10 @@
 extends RigidBody2D
 
-const WEAPON_COOLDOWN = 0.2
+const WEAPON_COOLDOWN = 1.0
 const PROJECTILE_SPEED = Vector2(300, 0)
 
 var cooldown = 0
-var speed = 100
-var player = null
+var speed = 50
 var target_ref = null
 var target_candidate_ref = null
 var old_delta = Vector2(0.0, 0.0)
@@ -51,12 +50,19 @@ func _physics_process(dt):
 			applied_force = movement
 			if (linear_velocity.length() > 200 && (delta.length() - old_delta.length()) > 5):
 				apply_impulse(Vector2(0,0), - linear_velocity + target.linear_velocity)
-
 		else:
-			#if extra_fuel >= 100:
-				#extra_fuel = 0
-			apply_impulse(Vector2(0,0), - delta/2)
+			#apply_impulse(Vector2(0,0), - delta/2)
 			applied_force = -movement
+
+		var space_state = get_world_2d().direct_space_state
+		var result = space_state.intersect_ray(position, target.position, [$vision_area, self], 2)
+		if result:
+			if result.collider is preload("res://spaceship.gd"):
+				$chicken_memory.stop()
+			elif $chicken_memory.is_stopped():
+				$chicken_memory.start()
+		elif $chicken_memory.is_stopped():
+			$chicken_memory.start()
 
 		rotation = (target.position - position).angle()
 		old_delta = delta
@@ -68,13 +74,14 @@ func _physics_process(dt):
 			cooldown = WEAPON_COOLDOWN
 	else:
 		var follow = get_node("../chicken_paths/Path2D_" + str(chicken_id) + "/PathFollow2D")
-		follow.loop = true
-		follow.cubic_interp = true
-		follow.rotate = true
-		follow.offset += speed * dt
-		var start = position
-		position = get_node("../chicken_paths/Path2D_" + str(chicken_id)).position + follow.position
-		rotation = follow.rotation
+		if follow:
+			follow.loop = true
+			follow.cubic_interp = true
+			follow.rotate = true
+			follow.offset += speed * dt
+			var start = position
+			position = get_node("../chicken_paths/Path2D_" + str(chicken_id)).position + follow.position
+			rotation = follow.rotation
 		
 		var target_candidate = null if not target_candidate_ref else target_candidate_ref.get_ref()
 		if target_candidate:
@@ -95,4 +102,11 @@ func shoot_target(target):
 
 func _on_vision_area_body_entered(body):
 	if body is preload("res://spaceship.gd"):
-		target_candidate_ref = weakref(player)
+		target_candidate_ref = weakref(body)
+
+func _on_vision_area_body_exited(body):
+	if body is preload("res://spaceship.gd"):
+		target_candidate_ref = null
+
+func _on_chicken_memory_timeout():
+	target_ref = null
