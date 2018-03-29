@@ -1,19 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://comet/comet.png" type="Texture" id=1]
-[ext_resource path="res://turret/turret.gd" type="Script" id=2]
+[ext_resource path="res://turret/turret.gd" type="Script" id=1]
+[ext_resource path="res://turret/turret_base.png" type="Texture" id=2]
+[ext_resource path="res://turret/turret_top.png" type="Texture" id=3]
+[ext_resource path="res://turret/turret_cone_base.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 32.0
+radius = 30.0
 
-[node name="turret" type="Sprite"]
-
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+[node name="turret" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -22,14 +19,28 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+[node name="turret_base" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
+[node name="turret_top" type="Sprite" parent="." index="2"]
 
-polygon = PoolVector2Array( -170.497, -54.0374, -169.443, 50.8436, -0.789673, 0.774765 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -15, -13 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="3"]
+
+polygon = PoolVector2Array( -170.497, -54.0374, -169.443, 50.8436, -31.9803, 13.8291, -34.9706, 9.41485, -35.113, 0.159126, -35.2554, -11.6597, -32.8347, -13.7957 )
 uv = PoolVector2Array(  )
 color = Color( 0.813905, 0.0376342, 0.949219, 0.329804 )
 vertex_colors = PoolColorArray(  )
@@ -43,7 +54,15 @@ invert_enable = false
 invert_border = 100.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="vision_area" type="Area2D" parent="Polygon2D" index="0"]
+[node name="turret_cone_base" type="Sprite" parent="Polygon2D" index="0"]
+
+rotation = -1.9635
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( 0, -35 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="vision_area" type="Area2D" parent="Polygon2D" index="1"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
