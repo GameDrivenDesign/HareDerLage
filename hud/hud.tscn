@@ -18,7 +18,7 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="hud" type="Node2D" index="0"]
+[node name="hud" type="Node2D"]
 
 position = Vector2( 349, 218.5 )
 _sections_unfolded = [ "Transform" ]
@@ -48,13 +48,13 @@ _sections_unfolded = [ "Focus", "Material", "Mouse", "Rect", "Size Flags", "Them
 
 [node name="health_bar" type="ColorRect" parent="." index="1"]
 
-anchor_left = 0.0
+anchor_left = 1.0
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = -350.0
+margin_left = -400.0
 margin_top = -180.0
-margin_right = 420.0
+margin_right = 350.0
 margin_bottom = -150.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -62,7 +62,24 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 1, 0.210938, 0.210938, 0.613255 )
+color = Color( 1, 0, 0, 0.613255 )
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="health_bar_background" type="ColorRect" parent="health_bar" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 750.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 0.187843 )
 _sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="easter_eggs" type="Label" parent="." index="2"]
@@ -72,9 +89,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 370.0
-margin_top = -79.0
+margin_top = -130.0
 margin_right = 658.0
-margin_bottom = -10.0
+margin_bottom = -61.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

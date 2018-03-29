@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hase.svg-484ffe7e8c46d26a138e5e33b1b15014.stex"
+path="res://.import/particle_round.png-d3931ba31e16913dba773d1e45b7b63a.stex"
 
 [deps]
 
-source_file="res://comet/Hase.svg"
-source_md5="8b06ae88f74b6c237b66ece6bcacbd53"
+source_file="res://explosion/particle_round.png"
+source_md5="6fffa9988cb9c8f0b687d3b205e9647f"
 
-dest_files=[ "res://.import/Hase.svg-484ffe7e8c46d26a138e5e33b1b15014.stex" ]
-dest_md5="344f6de60d66dcfcbf174a850f86db59"
+dest_files=[ "res://.import/particle_round.png-d3931ba31e16913dba773d1e45b7b63a.stex" ]
+dest_md5="8609437e4e38cb4bdce557cb20d9077f"
 
 [params]
 
@@ -29,4 +29,4 @@ process/HDR_as_SRGB=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=0.1
+svg/scale=1.0
