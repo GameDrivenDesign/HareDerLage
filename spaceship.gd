@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var tween
 
-var torque = 200
+var torque = 2500
 var speed = 200
 var handling = 20
 
@@ -50,17 +50,18 @@ func die():
 	queue_free()
 
 func _physics_process(delta):
-	var angle = Vector2(0, 1).rotated(transform.get_rotation()).angle_to(linear_velocity)
-		
+	#var angle = Vector2(0, 1).rotated(transform.get_rotation()).angle_to(linear_velocity)
+	
 	if Input.is_action_pressed("up"):
-		applied_force = Vector2(0, speed + handling * abs(angle)).rotated(transform.get_rotation())
+		#applied_force = Vector2(0, speed + handling * abs(angle)).rotated(transform.get_rotation())
+		applied_force = Vector2(0, speed).rotated(rotation)
 	else:
 		applied_force = Vector2()
 	
 	$exhaust.emitting = Input.is_action_pressed("up")
 	
 	if Input.is_action_pressed("left"):
-		applied_torque = - torque
+		applied_torque = -torque
 	elif Input.is_action_pressed("right"):
 		applied_torque = torque
 	else:
