@@ -6,12 +6,14 @@ extends Node2D
 
 
 func _ready():
-	spawn_chicken(Vector2(600, 500))
+	spawn_chicken(1)
+	spawn_chicken(2)
 
-func spawn_chicken(pos):
+func spawn_chicken(id):
 	var chicken = preload("res://spr_chickenWing.tscn").instance()
-	chicken.position = pos
+	#chicken.position = pos
 	chicken.player = $spaceship
+	chicken.chicken_id = id
 	
 	add_child(chicken)
 

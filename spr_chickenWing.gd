@@ -4,6 +4,7 @@ var speed = 80
 var player = null
 var target = null
 var old_delta = Vector2(0.0, 0.0)
+var chicken_id = 0
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -21,13 +22,13 @@ func _physics_process(dt):
 		print(delta)
 		old_delta = delta
 	else:
-		var follow = get_node("../Path2D/PathFollow2D")
+		var follow = get_node("../chicken_paths/Path2D_" + str(chicken_id) + "/PathFollow2D_" + str(chicken_id))
 		follow.loop = true
 		follow.cubic_interp = true
 		follow.rotate = true
 		follow.offset += speed * dt
 		var start = position
-		position = get_node("../Path2D").position + follow.position
+		position = get_node("../chicken_paths/Path2D_" + str(chicken_id)).position + follow.position
 		rotation = follow.rotation
 
 func _on_vision_area_body_entered(body):

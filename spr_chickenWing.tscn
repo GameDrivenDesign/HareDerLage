@@ -3,7 +3,7 @@
 [ext_resource path="res://spr_chickenWing.gd" type="Script" id=1]
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 
-[node name="spr_chickenWing" type="RigidBody2D" index="0"]
+[node name="spr_chickenWing" type="RigidBody2D"]
 
 rotation = 1.5708
 input_pickable = false
@@ -42,7 +42,7 @@ polygon = PoolVector2Array( 27.3909, 0.294579, -4.97505, -19.5321, -13.4195, -11
 
 polygon = PoolVector2Array( -0.145988, 1.15222, 127.36, 80.9923, 153.973, 1.94663, 130.14, -81.4684 )
 uv = PoolVector2Array(  )
-color = Color( 0.542969, 0.517119, 0.129379, 1 )
+color = Color( 0.138428, 0.424244, 0.632813, 0.458549 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
