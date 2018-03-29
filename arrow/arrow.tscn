@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://arrow/arrow.gd" type="Script" id=1]
+[ext_resource path="res://arrow/arrow.svg" type="Texture" id=2]
+[ext_resource path="res://explosion/particle_round.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 21.0
+
+[sub_resource type="OccluderPolygon2D" id=2]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( -4.68079, -20.843, -10.9085, -18.0865, -17.0342, -13.0839, -19.2802, -7.57078, -20.9137, -0.526299, -19.6886, 7.02866, -16.5237, 13.1543, -10.8064, 17.8506, -3.55776, 20.0967, 1.75112, 20.8113, 7.97885, 18.4632, 13.1856, 16.3192, 16.4527, 12.4396, 20.5364, 5.80353, 21.0469, -1.13886, 19.8218, -8.08125, 14.2066, -15.432, 7.67258, -20.0262, 1.64903, -21.6598 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "pulse"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 5.0, 8.0, 5.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 3.0, 1.0 ]
+}
+
+[node name="arrow" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="2"]
+
+occluder = SubResource( 2 )
+light_mask = 1
+
+[node name="Light2D" type="Light2D" parent="." index="3"]
+
+position = Vector2( 0.102097, -0.408375 )
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+texture_scale = 5.0
+color = Color( 1, 0, 0, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = -1
+range_layer_max = 0
+range_item_cull_mask = 2
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 0.3
+anims/pulse = SubResource( 3 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+

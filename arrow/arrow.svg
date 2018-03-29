@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="71.566498mm"
+   height="71.566498mm"
+   viewBox="0 0 71.566498 71.566498"
    version="1.1"
    id="svg5385"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="Arrow.svg">
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="arrow.svg">
   <defs
      id="defs5379" />
   <sodipodi:namedview
@@ -25,17 +25,21 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4928528"
-     inkscape:cx="463.01964"
-     inkscape:cy="360.99255"
+     inkscape:zoom="0.52780317"
+     inkscape:cx="-10.554904"
+     inkscape:cy="83.352751"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="705"
+     inkscape:window-width="1368"
+     inkscape:window-height="849"
      inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata5382">
     <rdf:RDF>
@@ -51,9 +55,10 @@
   <g
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-61.517868,-164.97905)">
     <circle
-       style="opacity:1;fill:#808080;fill-opacity:0.99065396;stroke:#d20000;stroke-width:2.73799992;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:10.952, 10.95199999999999996;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       style="opacity:1;fill:#808080;fill-opacity:0.99065396;stroke:#d20000;stroke-width:2.73799992;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:10.952, 10.952;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="path5979"
        cx="97.301117"
        cy="200.7623"

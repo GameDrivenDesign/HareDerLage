@@ -7,7 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 100, 100 )
 
-[node name="destination" type="Area2D"]
+[node name="destination" type="Area2D" groups=[
+"destinations",
+]]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

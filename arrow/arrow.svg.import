@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Arrow.svg-45e3c82569d9080f75efd5e39fa5cdac.stex"
+path="res://.import/arrow.svg-1345b2d79c4a24a6c7b556802cde08d1.stex"
 
 [deps]
 
-source_file="res://comet/Arrow.svg"
-source_md5="2e57f099d49df2d8e3ca5ac79f610d38"
+source_file="res://arrow/arrow.svg"
+source_md5="169904df95d73b54f3d018c26545fffd"
 
-dest_files=[ "res://.import/Arrow.svg-45e3c82569d9080f75efd5e39fa5cdac.stex" ]
-dest_md5="8bd816b2aa65bbb3d3386d01aa1ad083"
+dest_files=[ "res://.import/arrow.svg-1345b2d79c4a24a6c7b556802cde08d1.stex" ]
+dest_md5="53719f01de68110810baa5d594f9f2cd"
 
 [params]
 

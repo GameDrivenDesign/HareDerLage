@@ -5,7 +5,7 @@
 [ext_resource path="res://game/background.png" type="Texture" id=3]
 [ext_resource path="res://level_heist/level_heist.tscn" type="PackedScene" id=4]
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -18,8 +18,6 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="hud" parent="hud_layer" index="0" instance=ExtResource( 2 )]
-
-position = Vector2( 355.461, 223.679 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
 
@@ -45,11 +43,12 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
+light_mask = 3
 position = Vector2( 2000, 2000 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4000, 4000 )
-_sections_unfolded = [ "Region", "Transform" ]
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="level" parent="." index="2" instance=ExtResource( 4 )]
 
