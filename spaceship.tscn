@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://spaceship.gd" type="Script" id=1]
 [ext_resource path="res://comet/Hase.svg" type="Texture" id=2]
+[ext_resource path="res://explosion/particle_round.png" type="Texture" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 0
 
 [sub_resource type="Gradient" id=1]
 
@@ -42,7 +49,7 @@ damping = 0.0
 damping_random = 0.0
 angle = 0.0
 angle_random = 0.0
-scale = 2.0
+scale = 1.2
 scale_random = 0.0
 color_ramp = SubResource( 2 )
 hue_variation = 0.0
@@ -89,6 +96,7 @@ polygon = PoolVector2Array( -7.1813, 23.95, 7.27255, 23.95, 13.0651, 13.6889, 9.
 
 [node name="exhaust" type="Particles2D" parent="." index="2"]
 
+material = SubResource( 4 )
 position = Vector2( 0, -20.9348 )
 rotation = -1.5708
 emitting = false
@@ -105,10 +113,10 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 3 )
-texture = null
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Time" ]
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time" ]
 
 
