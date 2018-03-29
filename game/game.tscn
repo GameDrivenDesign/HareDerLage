@@ -11,7 +11,7 @@
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -147.051, 48.666, 0, 0, 0, 0, -201.297, 82.7726, 0, 0, 0, 0, -399.295, 48.666, 0, 0, 0, 0, -556.608, 11.9357, 0, 0, 0, 0, -629.84, 38.1716, 0, 0, 0, 0, -591.868, 80.149, 0, 0, 0, 0, -274.529, 4.06488, 0, 0, 0, 0, -171.462, -1.18228, 0, 0, 0, 0, -147.051, 48.666 )
+"points": PoolVector2Array( 0, 0, 0, 0, -147.051, 48.666, 0, 0, 0, 0, -201.297, 82.7726, 0, 0, 0, 0, -399.295, 48.666, 0, 0, 0, 0, -556.608, 11.9357, 0, 0, 0, 0, -629.84, 38.1716, 0, 0, 0, 0, -524.581, 80.5541, 0, 0, 0, 0, -274.529, 4.06488, 0, 0, 0, 0, -171.462, -1.18228, 0, 0, 0, 0, -147.051, 48.666 )
 }
 
 [sub_resource type="Curve2D" id=2]
@@ -348,8 +348,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Path2D_1" type="Path2D" parent="chicken_paths" index="0"]
 
-position = Vector2( 345.848, -274.613 )
-scale = Vector2( 0.928193, 0.959576 )
+position = Vector2( 345.848, -379.645 )
+scale = Vector2( 0.928193, 2.2285 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_1" index="0"]
@@ -435,7 +435,8 @@ lookahead = 4.0
 
 [node name="Path2D_6" type="Path2D" parent="chicken_paths" index="5"]
 
-position = Vector2( 1627.89, -612.908 )
+position = Vector2( 1627.67, -674.247 )
+scale = Vector2( 1.85126, 1.96454 )
 curve = SubResource( 6 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_6" index="0"]
@@ -452,7 +453,8 @@ lookahead = 4.0
 
 [node name="Path2D_7" type="Path2D" parent="chicken_paths" index="6"]
 
-position = Vector2( -1526.77, -999.231 )
+position = Vector2( -1519.96, -798.143 )
+scale = Vector2( 4.0544, 3.64999 )
 curve = SubResource( 7 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_7" index="0"]
@@ -469,7 +471,8 @@ lookahead = 4.0
 
 [node name="Path2D_8" type="Path2D" parent="chicken_paths" index="7"]
 
-position = Vector2( -1552.35, -947.75 )
+position = Vector2( -1587.61, -675.361 )
+scale = Vector2( 2.77205, 2.81035 )
 curve = SubResource( 8 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_8" index="0"]
@@ -486,6 +489,8 @@ lookahead = 4.0
 
 [node name="Path2D_9" type="Path2D" parent="chicken_paths" index="8"]
 
+position = Vector2( 2946.14, 2246.34 )
+scale = Vector2( 2.90362, 3.066 )
 curve = SubResource( 9 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_9" index="0"]
