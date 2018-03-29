@@ -1,9 +1,13 @@
 extends RigidBody2D
 
+const WEAPON_COOLDOWN = 0.2
+const PROJECTILE_SPEED = Vector2(300, 0)
+
+var cooldown = 0
 var speed = 100
 var player = null
-var target = null
-var target_candidate = null
+var target_ref = null
+var target_candidate_ref = null
 var old_delta = Vector2(0.0, 0.0)
 var chicken_id = 0
 
@@ -12,8 +16,6 @@ var chicken_id = 0
 var health = 100
 var alive = true
 var tween
-
-onready var detection_ray = get_node("detection_ray")
 
 func _ready():
 	tween = Tween.new()
@@ -39,6 +41,8 @@ func die(): #Billige Copy-Pasta aus spaceship.gd
 	queue_free()
 
 func _physics_process(dt):
+	var target = null if not target_ref else target_ref.get_ref()
+	
 	if target:
 		var delta = target.position - position
 		var movement = delta.normalized() * speed
@@ -56,8 +60,12 @@ func _physics_process(dt):
 
 		rotation = (target.position - position).angle()
 		old_delta = delta
-		#if extra_fuel <= 100:
-		#	extra_fuel += 1
+		
+		if cooldown > 0:
+			cooldown -= dt
+		else:
+			shoot_target(target)
+			cooldown = WEAPON_COOLDOWN
 	else:
 		var follow = get_node("../chicken_paths/Path2D_" + str(chicken_id) + "/PathFollow2D")
 		follow.loop = true
@@ -68,13 +76,23 @@ func _physics_process(dt):
 		position = get_node("../chicken_paths/Path2D_" + str(chicken_id)).position + follow.position
 		rotation = follow.rotation
 		
+		var target_candidate = null if not target_candidate_ref else target_candidate_ref.get_ref()
 		if target_candidate:
 			var space_state = get_world_2d().direct_space_state
 			var result = space_state.intersect_ray(position, target_candidate.position, [$vision_area, self], collision_layer)
 			if result:
 				if result.collider is preload("res://spaceship.gd"):
-					target = target_candidate
+					target_ref = target_candidate_ref
+
+func shoot_target(target):
+	var projectile = preload("res://projectile.tscn").instance()
+	projectile.position = position
+	projectile.rotation = position.angle_to_point(target.position) + PI
+	projectile.direction = PROJECTILE_SPEED.rotated(projectile.rotation)
+	projectile.add_collision_exception_with(self)
+	
+	get_parent().add_child(projectile)
 
 func _on_vision_area_body_entered(body):
 	if body is preload("res://spaceship.gd"):
-		target_candidate = player
+		target_candidate_ref = weakref(player)

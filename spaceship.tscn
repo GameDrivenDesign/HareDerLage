@@ -91,7 +91,7 @@ polygon = PoolVector2Array( -7.1813, 23.95, 7.27255, 23.95, 13.0651, 13.6889, 9.
 
 position = Vector2( 0, -20.9348 )
 rotation = -1.5708
-emitting = true
+emitting = false
 amount = 200
 lifetime = 1.0
 one_shot = false
