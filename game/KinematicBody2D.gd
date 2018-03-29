@@ -3,14 +3,13 @@ extends KinematicBody2D
 
 var proj_basespeed = 200
 var direction #auch Geschwindigkeit!
-var proj_damage = 10
+var proj_damage = 50 #-> Zwei Schüsse töten ein Huhn
 
 var has_collided
 
 var tween
 
 func _ready():
-	#direction = Vector2(0, proj_speed).rotated(transform.get_rotation())
 	has_collided = false
 	tween = Tween.new()
 	add_child(tween)
@@ -29,6 +28,5 @@ func _physics_process(delta):
 			yield(tween, "tween_completed")
 			queue_free()
 			
-			if collided.collider.has_method("take_damage"):
+			if collided.collider and collided.collider.has_method("take_damage"):
 				collided.collider.take_damage (proj_damage)
-				

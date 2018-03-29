@@ -5,12 +5,38 @@ var player = null
 var target = null
 var old_delta = Vector2(0.0, 0.0)
 var chicken_id = 0
+
 var extra_fuel = 100
 
+var health = 100
+var alive = true
+var tween
+
+
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	tween = Tween.new()
+	add_child(tween)
+
+func take_damage(damage):
+	set_health(max(health - damage, 0))
+
+func set_health(new_health):
+	health = new_health
+	if health == 0 and alive:
+		die()
+
+func die(): #Billige Copy-Pasta aus spaceship.gd
+	alive = false
+	
+	var explosion = preload("res://explosion/explosion.tscn").instance()
+	explosion.position = position
+	add_child(explosion)
+	tween.interpolate_property(self, "scale", Vector2(1, 1), Vector2(0.1, 0.1), 0.1, Tween.TRANS_BACK, Tween.EASE_IN)
+	tween.start()
+	yield(tween, "tween_completed")
+	queue_free()
+
+
 
 func _physics_process(dt):
 	if target:
