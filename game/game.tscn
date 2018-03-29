@@ -71,7 +71,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -1623.84, -1032.96, 0, 0, 0, 0, -1609.43, -1087.25, 0, 0, 0, 0, -1527.44, -1169.24, 0, 0, 0, 0, -1428.82, -1154.84, 0, 0, 0, 0, -1368.99, -1069.52, 0, 0, 0, 0, -1395.58, -977.554, 0, 0, 0, 0, -1479.79, -936.556, 0, 0, 0, 0, -1596.14, -959.825, 0, 0, 0, 0, -1622.73, -1032.96 )
 }
 
-[node name="game" type="Node2D" index="0"]
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -291,7 +291,6 @@ position = Vector2( 953.995, -1664.06 )
 [node name="spaceship" parent="." index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
-position = Vector2( 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="spaceship" index="2"]
 
@@ -430,7 +429,7 @@ curve = SubResource( 5 )
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_5" index="0"]
 
 position = Vector2( 54.6616, 12.6143 )
-rotation = -0.628795
+rotation = -0.628794
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -502,7 +501,7 @@ curve = SubResource( 9 )
 [node name="PathFollow2D" type="PathFollow2D" parent="chicken_paths/Path2D_9" index="0"]
 
 position = Vector2( -1623.84, -1032.96 )
-rotation = -1.31135
+rotation = -1.31138
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0

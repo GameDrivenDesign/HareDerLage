@@ -5,17 +5,17 @@ var tween
 var torque = 2500
 var speed = 200
 var handling = 20
-
+var fire_intervall = 1
 # Remaining space ship health
 var health = 100.0
 
 # Whether or not the player is still alive
 var alive = true
+var fire_in = 0
 
 func _ready():
 	tween = Tween.new()
 	add_child(tween)
-	
 	set_health(health)
 
 # This can be called by chicken wings or comets
@@ -49,6 +49,12 @@ func die():
 	yield(tween, "tween_completed")
 	queue_free()
 
+func _process(delta):
+	if fire_in > 0:
+		fire_in -= delta
+		if fire_in < 0:
+			fire_in = 0
+
 func _physics_process(delta):
 	#var angle = Vector2(0, 1).rotated(transform.get_rotation()).angle_to(linear_velocity)
 	
@@ -67,8 +73,11 @@ func _physics_process(delta):
 	else:
 		applied_torque = 0
 	if Input.is_action_just_pressed("shoot"):
-		var projectile = preload("res://projectile.tscn").instance()
-		projectile.position = position + Vector2(0, 20).rotated(transform.get_rotation())
-		projectile.rotation = transform.get_rotation()
-		get_parent().add_child(projectile)
-		projectile.add_collision_exception_with(self)
+		if fire_in <= 0:
+			fire_in = fire_intervall
+			var projectile = preload("res://projectile.tscn").instance()
+			projectile.position = position + Vector2(0, 20).rotated(transform.get_rotation())
+			projectile.rotation = transform.get_rotation()
+			projectile.direction = Vector2(0, projectile.proj_basespeed).rotated(transform.get_rotation()) + linear_velocity
+			get_parent().add_child(projectile)
+			projectile.add_collision_exception_with(self)
