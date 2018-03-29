@@ -42,6 +42,7 @@ func _on_vision_area_body_entered(body):
 		target = body
 
 func shoot_to_target():
+	$AnimationPlayer.play('knockback')
 	spawn_projectile(position + Vector2(-40, -11).rotated($Polygon2D.rotation))
 	spawn_projectile(position + Vector2(-40,  11).rotated($Polygon2D.rotation))
 

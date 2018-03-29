@@ -7,7 +7,7 @@ var speed = 200
 var handling = 20
 var fire_intervall = 0.6
 # Remaining space ship health
-var health = 100.0
+var health = 10000000000.0
 #var impulse_fuel = 100
 
 # Whether or not the player is still alive

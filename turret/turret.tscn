@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://turret/turret.gd" type="Script" id=1]
 [ext_resource path="res://turret/turret_base.png" type="Texture" id=2]
@@ -8,7 +8,26 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 30.0
+radius = 32.0
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "knockback"
+length = 0.2
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("turret_top/turret_top_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
 
 [node name="turret" type="StaticBody2D" index="0"]
 
@@ -31,7 +50,11 @@ _sections_unfolded = [ "Transform" ]
 
 shape = SubResource( 1 )
 
-[node name="turret_top" type="Sprite" parent="." index="2"]
+[node name="turret_top" type="Node2D" parent="." index="2"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="turret_top_sprite" type="Sprite" parent="turret_top" index="0"]
 
 texture = ExtResource( 3 )
 centered = false
@@ -76,6 +99,16 @@ audio_bus_name = "Master"
 
 build_mode = 0
 polygon = PoolVector2Array( -2.3295, 1.57014, -169.787, -52.825, -168.648, 50.2695, -2.89908, 1.28535 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/knockback = SubResource( 2 )
+blend_times = [  ]
 
 [connection signal="body_entered" from="Polygon2D/vision_area" to="." method="_on_vision_area_body_entered"]
 
