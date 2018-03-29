@@ -57,6 +57,8 @@ func _physics_process(delta):
 	else:
 		applied_force = Vector2()
 	
+	$exhaust.emitting = Input.is_action_pressed("up")
+	
 	if Input.is_action_pressed("left"):
 		applied_torque = - torque
 	elif Input.is_action_pressed("right"):
