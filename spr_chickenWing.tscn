@@ -61,7 +61,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "Spread" ]
 
-[node name="spr_chickenWing" type="RigidBody2D" index="0"]
+[node name="spr_chickenWing" type="RigidBody2D"]
 
 rotation = 1.5708
 input_pickable = false
@@ -94,13 +94,11 @@ _sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
-visible = false
 build_mode = 0
 polygon = PoolVector2Array( 27.3909, 0.294579, -4.97505, -19.5321, -13.4195, -11.9863, -21.6883, -6.4897, -21.6883, 5.90452, -11.2467, 12.481, -4.84554, 19.8053 )
 
 [node name="vision_area" type="Area2D" parent="." index="2"]
 
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -114,19 +112,19 @@ _sections_unfolded = [ "Collision" ]
 [node name="vision_area" type="CollisionPolygon2D" parent="vision_area" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 11.3734, 15.4515, 181.53, 109.075, 204.587, 52.6305, 206.383, -50.9511, 180.637, -104.837, 12.9621, -12.7508, -6.89865, -24.2699, -27.1712, -6.19604, -27.1565, 4.3296, -5.3096, 26.9708 )
+polygon = PoolVector2Array( 11.3734, 15.4515, 387.107, 263.648, 483.61, 154.557, 486.406, -127.961, 405.287, -251.038, 12.9621, -12.7508, -6.89865, -24.2699, -27.1712, -6.19604, -27.1565, 4.3296, -5.3096, 26.9708 )
 
 [node name="Light2D" type="Light2D" parent="." index="3"]
 
-position = Vector2( -3.86568, -0.00924809 )
+position = Vector2( -3.86569, -0.00923283 )
 rotation = -1.5708
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
-offset = Vector2( 0, 90 )
-texture_scale = 0.5
+offset = Vector2( 0, 180 )
+texture_scale = 1.0
 color = Color( 1, 0.187225, 0.33962, 1 )
-energy = 3.0
+energy = 2.0
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -138,8 +136,8 @@ shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 0 )
 shadow_buffer_size = 2048
 shadow_gradient_length = 0.0
-shadow_filter = 3
-shadow_filter_smooth = 3.0
+shadow_filter = 2
+shadow_filter_smooth = 2.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow", "Transform" ]
 

@@ -88,7 +88,7 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="5"]
 
-polygon = PoolVector2Array( -170.497, -54.0374, -169.443, 50.8436, -31.9803, 13.8291, -34.9706, 9.41485, -35.113, 0.159126, -35.2554, -11.6597, -32.8347, -13.7957 )
+polygon = PoolVector2Array( -681.079, -298.154, -681.079, 266.368, -31.9803, 13.8291, -34.9706, 9.41485, -35.113, 0.159126, -35.2554, -11.6597, -32.8347, -13.7957 )
 uv = PoolVector2Array(  )
 color = Color( 0.813905, 0.0376342, 0.949219, 0.329804 )
 vertex_colors = PoolColorArray(  )
@@ -123,7 +123,7 @@ audio_bus_name = "Master"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/vision_area" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -2.3295, 1.57014, -169.787, -52.825, -168.648, 50.2695, -2.89908, 1.28535 )
+polygon = PoolVector2Array( -2.3295, 1.57014, -680.244, -299.825, -677.739, 264.697, -2.89908, 1.28535 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 

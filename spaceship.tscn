@@ -1,27 +1,27 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://spaceship.gd" type="Script" id=1]
 [ext_resource path="res://comet/Hase.svg" type="Texture" id=2]
 [ext_resource path="res://explosion/particle_round.png" type="Texture" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=6]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=2]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.877922, 0.941406, 0.316333, 1, 1, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
-gradient = SubResource( 1 )
+gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -51,7 +51,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.2
 scale_random = 0.0
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -61,7 +61,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Initial Velocity", "Scale" ]
 
-[sub_resource type="OccluderPolygon2D" id=4]
+[sub_resource type="OccluderPolygon2D" id=5]
 
 closed = true
 cull_mode = 0
@@ -102,7 +102,8 @@ polygon = PoolVector2Array( -7.1813, 23.95, 7.27255, 23.95, 13.0651, 13.6889, 9.
 
 [node name="exhaust" type="Particles2D" parent="." index="2"]
 
-material = SubResource( 4 )
+light_mask = 0
+material = SubResource( 6 )
 position = Vector2( 0, -20.9348 )
 rotation = -1.5708
 emitting = false
@@ -118,16 +119,16 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time" ]
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Visibility" ]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." index="3"]
 
-occluder = SubResource( 4 )
+occluder = SubResource( 5 )
 light_mask = 1
 
 
