@@ -54,10 +54,10 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Initial Velocity", "Scale" ]
 
-[node name="spaceship" type="RigidBody2D"]
+[node name="spaceship" type="RigidBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 3
 collision_mask = 1
 mode = 0
 mass = 1.0
@@ -71,7 +71,7 @@ contact_monitor = false
 sleeping = false
 can_sleep = true
 linear_velocity = Vector2( 0, 0 )
-linear_damp = 0.0
+linear_damp = 0.15
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
