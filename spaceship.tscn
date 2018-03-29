@@ -57,7 +57,7 @@ _sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Initial Velocity",
 [node name="spaceship" type="RigidBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 3
 collision_mask = 1
 mode = 0
 mass = 1.0
