@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://comet/comet.png" type="Texture" id=1]
+[ext_resource path="res://turret/turret.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 32.0
+
+[node name="turret" type="Sprite" index="0"]
+
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
+
+polygon = PoolVector2Array( -170.497, -54.0374, -169.443, 50.8436, -0.789673, 0.774765 )
+uv = PoolVector2Array(  )
+color = Color( 0.813905, 0.0376342, 0.949219, 0.329804 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="vision_area" type="Area2D" parent="Polygon2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/vision_area" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -2.3295, 1.57014, -169.787, -52.825, -168.648, 50.2695, -2.89908, 1.28535 )
+
+[connection signal="body_entered" from="Polygon2D/vision_area" to="." method="_on_vision_area_body_entered"]
+
+[connection signal="body_exited" from="Polygon2D/vision_area" to="." method="_on_vision_area_body_exited"]
+
+
