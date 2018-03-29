@@ -7,7 +7,7 @@ path="res://.import/arrow.svg-1345b2d79c4a24a6c7b556802cde08d1.stex"
 [deps]
 
 source_file="res://arrow/arrow.svg"
-source_md5="169904df95d73b54f3d018c26545fffd"
+source_md5="8ad40170af79c6591739dad22ab695f5"
 
 dest_files=[ "res://.import/arrow.svg-1345b2d79c4a24a6c7b556802cde08d1.stex" ]
 dest_md5="53719f01de68110810baa5d594f9f2cd"

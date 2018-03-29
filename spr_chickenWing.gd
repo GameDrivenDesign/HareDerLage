@@ -90,6 +90,7 @@ func _physics_process(dt):
 			if result:
 				if result.collider is preload("res://spaceship.gd"):
 					target_ref = target_candidate_ref
+					$Light2D.color = Color(1, 0.187225, 0.33962, 1)
 
 func shoot_target(target):
 	var projectile = preload("res://projectile.tscn").instance()
@@ -110,3 +111,4 @@ func _on_vision_area_body_exited(body):
 
 func _on_chicken_memory_timeout():
 	target_ref = null
+	$Light2D.color = Color(0.168, 0.59, 1, 1)

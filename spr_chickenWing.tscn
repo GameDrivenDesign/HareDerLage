@@ -4,7 +4,7 @@
 [ext_resource path="res://chicken_wing/chicken_wing.svg" type="Texture" id=2]
 [ext_resource path="res://chicken_wing/light_cone.png" type="Texture" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 1
@@ -21,7 +21,7 @@ flags = 4
 gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -61,7 +61,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "Spread" ]
 
-[node name="spr_chickenWing" type="RigidBody2D"]
+[node name="spr_chickenWing" type="RigidBody2D" index="0"]
 
 rotation = 1.5708
 input_pickable = false
@@ -123,7 +123,7 @@ editor_only = false
 texture = ExtResource( 3 )
 offset = Vector2( 0, 180 )
 texture_scale = 1.0
-color = Color( 1, 0.187225, 0.33962, 1 )
+color = Color( 0.167969, 0.590485, 1, 1 )
 energy = 2.0
 mode = 0
 range_height = 0.0
@@ -151,7 +151,7 @@ autostart = false
 [node name="exhaust" type="Particles2D" parent="." index="5"]
 
 light_mask = 0
-material = SubResource( 4 )
+material = SubResource( 1 )
 position = Vector2( -21.6957, 0.774935 )
 rotation = -3.14159
 emitting = true
@@ -167,7 +167,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 1 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1

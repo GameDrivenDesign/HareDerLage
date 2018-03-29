@@ -7,7 +7,7 @@ path="res://.import/map.svg-20305727bb21e4723593f216484fe7fc.stex"
 [deps]
 
 source_file="res://comet/map.svg"
-source_md5="f025009b6ff986ccad50dd8f9bf06754"
+source_md5="55c6419f82dc7ebdbc8d6647fa5c35a2"
 
 dest_files=[ "res://.import/map.svg-20305727bb21e4723593f216484fe7fc.stex" ]
 dest_md5="163c67fc3c433fcd2b2cb27fea621077"
