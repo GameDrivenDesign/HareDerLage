@@ -34,6 +34,7 @@ func set_health(new_health):
 	health = new_health
 	# TODO Do something when spaceship is dead.
 	get_node('/root/game/hud_layer/hud/health').text = str(ceil(health)) + ' HP'
+	get_node('/root/game/hud_layer/hud/health_bar').margin_right = 7.7*health-350
 
 	if health == 0 and alive:
 		die()
