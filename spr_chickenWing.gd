@@ -37,7 +37,6 @@ func die(): #Billige Copy-Pasta aus spaceship.gd
 	queue_free()
 
 
-
 func _physics_process(dt):
 	if target:
 		var delta = target.position - position
