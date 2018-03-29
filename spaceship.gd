@@ -5,7 +5,7 @@ var tween
 var torque = 2500
 var speed = 200
 var handling = 20
-var fire_intervall = 1
+var fire_intervall = 0.6
 # Remaining space ship health
 var health = 100.0
 
@@ -72,7 +72,7 @@ func _physics_process(delta):
 		applied_torque = torque
 	else:
 		applied_torque = 0
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		if fire_in <= 0:
 			fire_in = fire_intervall
 			var projectile = preload("res://projectile.tscn").instance()
