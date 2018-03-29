@@ -1,4 +1,4 @@
-extends Sprite
+extends StaticBody2D
 
 var target = null
 
@@ -33,15 +33,15 @@ func _on_vision_area_body_entered(body):
 		aim_to_target()
 
 func shoot_to_target():
-	spawn_projectile(position + Vector2(0, -15).rotated($Polygon2D.rotation))
-	spawn_projectile(position + Vector2(0,  15).rotated($Polygon2D.rotation))
+	spawn_projectile(position + Vector2(-40, -11).rotated($Polygon2D.rotation))
+	spawn_projectile(position + Vector2(-40,  11).rotated($Polygon2D.rotation))
 
 func spawn_projectile(pos):
 	var projectile = preload("res://projectile.tscn").instance()
 	projectile.position = pos
 	projectile.rotation = position.angle_to_point(target.position) + PI / 2
 	projectile.direction = PROJECTILE_SPEED.rotated($Polygon2D.rotation + PI / 2)
-	projectile.add_collision_exception_with($StaticBody2D)
+	projectile.add_collision_exception_with(self)
 	
 	get_parent().add_child(projectile)
 
