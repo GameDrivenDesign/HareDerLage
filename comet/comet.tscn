@@ -34,14 +34,14 @@ closed = true
 cull_mode = 0
 polygon = PoolVector2Array( 39.04, 10.9624, 33.8506, 3.06554, 33.3993, -8.21574, 25.7281, -12.0514, 19.6361, -28.9733, 12.1905, -29.1989, 8.58047, -35.2908, -0.44455, -36.1933, -9.92081, -32.1321, -11.5002, -23.3327, -23.4583, -22.6558, -26.3915, -14.7589, -40.1547, 2.61429, -30.4528, 23.1462, -33.3859, 36.0069, -6.9877, 45.0319, -2.47519, 50.6726, 25.2768, 43.2269, 27.5331, 29.915, 35.8812, 24.5 )
 
-[node name="comet" type="RigidBody2D"]
+[node name="comet" type="RigidBody2D" index="0"]
 
 position = Vector2( 435.204, 159.221 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 mode = 0
-mass = 100.0
+mass = 10.0
 friction = 1.0
 bounce = 0.0
 gravity_scale = 1.0

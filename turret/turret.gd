@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var target = null
 
-const PROJECTILE_SPEED = Vector2(0, 500)
+const PROJECTILE_SPEED = Vector2(0, 1000)
 const WEAPON_COOLDOWN = 0.2
 
 var cooldown = 0
@@ -49,8 +49,8 @@ func shoot_to_target():
 func spawn_projectile(pos):
 	var projectile = preload("res://projectile.tscn").instance()
 	projectile.position = pos
-	projectile.rotation = position.angle_to_point(target.position) + PI / 2
-	projectile.direction = PROJECTILE_SPEED.rotated($Polygon2D.rotation + PI / 2)
+	projectile.rotation = position.angle_to_point(target.position) + PI / 2 + rand_range(-0.1, 0.1)
+	projectile.direction = PROJECTILE_SPEED.rotated(projectile.rotation)
 	projectile.add_collision_exception_with(self)
 	
 	get_parent().add_child(projectile)
