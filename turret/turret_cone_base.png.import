@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/turret.svg-f7b97d3015a5a139e6fb3222c52abc6c.stex"
+path="res://.import/turret_cone_base.png-74437f931b9438f9bc2bce659faceab2.stex"
 
 [deps]
 
-source_file="res://turret/turret.svg"
-source_md5="d6ad79ab4427799c1e1a24e2ad384eae"
+source_file="res://turret/turret_cone_base.png"
+source_md5="31435223cfe5b543e2930eec7a459002"
 
-dest_files=[ "res://.import/turret.svg-f7b97d3015a5a139e6fb3222c52abc6c.stex" ]
-dest_md5="8ec1f693ca886304b6fe2882770fc4dc"
+dest_files=[ "res://.import/turret_cone_base.png-74437f931b9438f9bc2bce659faceab2.stex" ]
+dest_md5="f9b31edafc55897c0e6c18de18505609"
 
 [params]
 

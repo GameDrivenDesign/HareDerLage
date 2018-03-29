@@ -16,21 +16,30 @@ func _process(delta):
 	if target == null:
 		$Polygon2D.rotation_degrees += 60*delta
 	else:
+		var turrent_top_has_aim = aim_to_target(delta)
+		
 		if cooldown > 0:
 			cooldown -= delta
-		else:
+		elif turrent_top_has_aim:
 			shoot_to_target()
 			cooldown = WEAPON_COOLDOWN
 		
-		aim_to_target()
 
-func aim_to_target():
-	$Polygon2D.rotation = position.angle_to_point(target.position)
+func aim_to_target(delta):
+	var target_rotation = position.angle_to_point(target.position)
+	var turret_target_rotation = target_rotation + PI / 2
+
+	$Polygon2D.rotation = target_rotation
+	$turret_top.rotation = lerp_angle($turret_top.rotation, 
+									  turret_target_rotation, 
+									  delta * 4)
+
+	return abs(normalize_angle($turret_top.rotation - turret_target_rotation)) < deg2rad(30)
+
 
 func _on_vision_area_body_entered(body):
 	if body is preload("res://spaceship.gd"):
 		target = body
-		aim_to_target()
 
 func shoot_to_target():
 	spawn_projectile(position + Vector2(-40, -11).rotated($Polygon2D.rotation))
@@ -48,3 +57,17 @@ func spawn_projectile(pos):
 func _on_vision_area_body_exited(body):
 	if body is preload("res://spaceship.gd"):
 		target = null
+
+static func lerp_angle(a, b, t):
+	a = normalize_angle(a)
+	b = normalize_angle(b)
+	if abs(a-b) >= PI:
+		if a > b:
+			a = normalize_angle(a) - 2.0 * PI
+		else:
+			b = normalize_angle(b) - 2.0 * PI
+	return lerp(a, b, t)
+
+
+static func normalize_angle(x):
+	return fposmod(x + PI, 2.0*PI) - PI
