@@ -7,7 +7,7 @@ path="res://.import/turret.svg-f7b97d3015a5a139e6fb3222c52abc6c.stex"
 [deps]
 
 source_file="res://turret/turret.svg"
-source_md5="ed9a0aebfc6b730e8832176d0e1c3ffd"
+source_md5="714dbfbd97f59cdf0ec3df8bbb7bea5f"
 
 dest_files=[ "res://.import/turret.svg-f7b97d3015a5a139e6fb3222c52abc6c.stex" ]
 dest_md5="591909ccd55216b0a8a0975c58c091a5"
