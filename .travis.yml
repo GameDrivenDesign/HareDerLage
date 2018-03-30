@@ -2,55 +2,14 @@ sudo: required
 dist: trusty
 os:
 - linux
+services:
+  - docker
 
-addons:
-  apt:
-    sources:
-      - sourceline: 'ppa:oibaf/graphics-drivers'
-    packages:
-      - libglew-dev
-      - freeglut3-dev
-      - libxi-dev
-      - libxmu-dev
-      - xserver-xorg-video-dummy
-      - xpra
-      - xorg-dev
-      - opencl-headers
-      - libgl1-mesa-dev
-      - libxcursor-dev
-      - libpulse-dev
-      - libxinerama-dev
-      - libxrandr-dev
-      - libxv-dev
-      - libasound2-dev
-      - libudev-dev
-      - mesa-utils
-      - libgl1-mesa-glx
-      - libgl1-mesa-dev
-      - libgl1-mesa-glx
-      - mesa-common-dev
-      - libglapi-mesa
-      - libgbm1
-      - libgl1-mesa-dri
-      - libxatracker-dev
-      - xvfb
-
-install:
- - export DISPLAY=:99
- - export LIBGL_ALWAYS_SOFTWARE=1
- - xpra --xvfb="Xorg +extension GLX +extension RANDR +extension RENDER -config `pwd`/ci/dummy.xorg.conf -logfile ${HOME}/.xpra/xorg.log"  start :99
- - sleep 3
- - LIBGL_ALWAYS_SOFTWARE=1 glxinfo
- - glxinfo
- - cat ${HOME}/.xpra/xorg.log
-
-before_script:
-  - wget -q --waitretry=1 --retry-connrefused -T 10 https://downloads.tuxfamily.org/godotengine/3.0.2/Godot_v3.0.2-stable_x11.64.zip -O /tmp/godot.zip
-  - unzip -q -d /tmp /tmp/godot.zip
-  - mv /tmp/Godot* /tmp/godot
+before_install:
+  - docker pull mattiascibien/godot-docker:3.0.2
 
 script:
-  - LIBGL_ALWAYS_SOFTWARE=1 /tmp/godot --fullscreen --export "HTML5" --path . output/index.html
+  - docker run -v `pwd`:/game mattiascibien/godot-docker:3.0.2 /bin/sh -c "godot --export "HTML5" --path /game /game/output/index.html"
 
 deploy:
   provider: pages
