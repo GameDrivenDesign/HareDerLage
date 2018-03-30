@@ -25,7 +25,7 @@ before_script:
   - mv /tmp/Godot* /tmp/godot
 
 script:
-  - xvfb-run /tmp/godot --export "HTML5" --path . output/index.html
+  - xvfb-run /tmp/godot --fullscreen --export "HTML5" --path . output/index.html
 
 deploy:
   provider: pages
