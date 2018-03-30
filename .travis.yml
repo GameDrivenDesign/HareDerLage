@@ -6,7 +6,7 @@ os:
 addons:
   apt:
     sources:
-      - oibaf/graphics-drivers
+      - sourceline: 'ppa:oibaf/graphics-drivers'
     packages:
       - libglew-dev
       - freeglut3-dev
