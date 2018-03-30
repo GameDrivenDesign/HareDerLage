@@ -1,23 +1,49 @@
 sudo: false
+dist: trusty
+os:
+- linux
 
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
-      - llvm-toolchain-trusty-3.9
+      - oibaf/graphics-drivers
     packages:
-      - build-essential
-      - scons
-      - pkg-config
-      - libx11-dev
-      - libxcursor-dev
-      - libasound2-dev
-      - libfreetype6-dev
+      - libglew-dev
+      - freeglut3-dev
+      - libxi-dev
+      - libxmu-dev
+      - xserver-xorg-video-dummy
+      - xpra
+      - xorg-dev
+      - opencl-headers
       - libgl1-mesa-dev
-      - libglu1-mesa-dev
-      - libssl-dev
+      - libxcursor-dev
+      - libpulse-dev
       - libxinerama-dev
       - libxrandr-dev
+      - libxv-dev
+      - libasound2-dev
+      - libudev-dev
+      - mesa-utils
+      - libgl1-mesa-glx
+
+      - libgl1-mesa-dev
+      - libgl1-mesa-glx
+      - mesa-common-dev
+      - libglapi-mesa
+      - libgbm1
+      - libgl1-mesa-dri
+      - libxatracker-dev
+      - xvfb
+
+install:
+ - export DISPLAY=:99
+ - export LIBGL_ALWAYS_SOFTWARE=1
+ - xpra --xvfb="Xorg +extension GLX +extension RANDR +extension RENDER -config `pwd`/ci/dummy.xorg.conf -logfile ${HOME}/.xpra/xorg.log"  start :99
+ - sleep 3
+ - LIBGL_ALWAYS_SOFTWARE=1 glxinfo
+ - glxinfo
+ - cat ${HOME}/.xpra/xorg.log
 
 before_script:
   - wget -q --waitretry=1 --retry-connrefused -T 10 https://downloads.tuxfamily.org/godotengine/3.0.2/Godot_v3.0.2-stable_x11.64.zip -O /tmp/godot.zip
@@ -25,7 +51,7 @@ before_script:
   - mv /tmp/Godot* /tmp/godot
 
 script:
-  - xvfb-run /tmp/godot --fullscreen --export "HTML5" --path . output/index.html
+  - /tmp/godot --fullscreen --export "HTML5" --path . output/index.html
 
 deploy:
   provider: pages
