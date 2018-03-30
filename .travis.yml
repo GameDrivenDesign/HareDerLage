@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 dist: trusty
 os:
 - linux
@@ -26,7 +26,6 @@ addons:
       - libudev-dev
       - mesa-utils
       - libgl1-mesa-glx
-
       - libgl1-mesa-dev
       - libgl1-mesa-glx
       - mesa-common-dev
@@ -51,7 +50,7 @@ before_script:
   - mv /tmp/Godot* /tmp/godot
 
 script:
-  - /tmp/godot --fullscreen --export "HTML5" --path . output/index.html
+  - LIBGL_ALWAYS_SOFTWARE=1 /tmp/godot --fullscreen --export "HTML5" --path . output/index.html
 
 deploy:
   provider: pages
