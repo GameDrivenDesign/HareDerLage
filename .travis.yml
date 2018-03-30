@@ -1,42 +1,11 @@
-sudo: false
+sudo: true
 dist: xenial
 os:
 - linux
 
-addons:
-  apt:
-    sources:
-      - sourceline: 'ppa:oibaf/graphics-drivers'
-    packages:
-      - libglew-dev
-      - freeglut3-dev
-      - libxi-dev
-      - libxmu-dev
-      - xserver-xorg-video-dummy
-      - xpra
-      - xorg-dev
-      - opencl-headers
-      - libgl1-mesa-dev
-      - libxcursor-dev
-      - libpulse-dev
-      - libxinerama-dev
-      - libxrandr-dev
-      - libxv-dev
-      - libasound2-dev
-      - libudev-dev
-      - mesa-utils
-      - libgl1-mesa-glx
-
-      - libgl1-mesa-dev
-      - libgl1-mesa-glx
-      - mesa-common-dev
-      - libglapi-mesa
-      - libgbm1
-      - libgl1-mesa-dri
-      - libxatracker-dev
-      - xvfb
-
 before_script:
+  - sudo add-apt-repository ppa:oibaf/graphics-drivers
+  - sudo apt-get install libglew-dev freeglut3-dev libxi-dev libxmu-dev xserver-xorg-video-dummy xpra xorg-dev opencl-headers libgl1-mesa-dev libxcursor-dev libpulse-dev libxinerama-dev libxrandr-dev libxv-dev libasound2-dev libudev-dev mesa-utils libgl1-mesa-glx libgl1-mesa-dev libgl1-mesa-glx mesa-common-dev libglapi-mesa libgbm1 libgl1-mesa-dri libxatracker-dev xvfb
   - export DISPLAY=:99
   - export LIBGL_ALWAYS_SOFTWARE=1
   - xpra --xvfb="Xorg +extension GLX +extension RANDR +extension RENDER -config `pwd`/ci/dummy.xorg.conf -logfile ${HOME}/.xpra/xorg.log"  start :99
