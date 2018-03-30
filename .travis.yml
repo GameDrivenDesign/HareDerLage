@@ -36,16 +36,15 @@ addons:
       - libxatracker-dev
       - xvfb
 
-install:
- - export DISPLAY=:99
- - export LIBGL_ALWAYS_SOFTWARE=1
- - xpra --xvfb="Xorg +extension GLX +extension RANDR +extension RENDER -config `pwd`/ci/dummy.xorg.conf -logfile ${HOME}/.xpra/xorg.log"  start :99
- - sleep 3
- - LIBGL_ALWAYS_SOFTWARE=1 glxinfo
- - glxinfo
- - cat ${HOME}/.xpra/xorg.log
-
 before_script:
+  - export DISPLAY=:99
+  - export LIBGL_ALWAYS_SOFTWARE=1
+  - xpra --xvfb="Xorg +extension GLX +extension RANDR +extension RENDER -config `pwd`/ci/dummy.xorg.conf -logfile ${HOME}/.xpra/xorg.log"  start :99
+  - sleep 3
+  - LIBGL_ALWAYS_SOFTWARE=1 glxinfo
+  - glxinfo
+  - cat ${HOME}/.xpra/xorg.log
+
   - wget -q --waitretry=1 --retry-connrefused -T 10 https://downloads.tuxfamily.org/godotengine/3.0.2/Godot_v3.0.2-stable_x11.64.zip -O /tmp/godot.zip
   - unzip -q -d /tmp /tmp/godot.zip
   - mv /tmp/Godot* /tmp/godot
