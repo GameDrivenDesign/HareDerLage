@@ -9,7 +9,7 @@ before_install:
   - docker pull mattiascibien/godot-docker:3.0.2
 
 script:
-  - docker run -v `pwd`:/game mattiascibien/godot-docker:3.0.2 /bin/sh -c "godot --export "HTML5" --path /game /game/output/index.html"
+  - docker run -v "$(pwd):/game" mattiascibien/godot-docker:3.0.2 /bin/sh -c "godot --export 'HTML5' --path /game /game/output/index.html"
 
 deploy:
   provider: pages
