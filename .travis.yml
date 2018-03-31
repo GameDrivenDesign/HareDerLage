@@ -1,24 +1,13 @@
-sudo: true
-dist: xenial
-os:
-- linux
+sudo: required
 
-before_script:
-  - sudo add-apt-repository -y ppa:oibaf/graphics-drivers
-  - sudo apt-get update
-  - sudo apt-get install -y libglew-dev freeglut3-dev libxi-dev libxmu-dev xserver-xorg-video-dummy xpra xorg-dev opencl-headers libgl1-mesa-dev libxcursor-dev libpulse-dev libxinerama-dev libxrandr-dev libxv-dev libasound2-dev libudev-dev mesa-utils libgl1-mesa-glx libgl1-mesa-dev libgl1-mesa-glx mesa-common-dev libglapi-mesa libgbm1 libgl1-mesa-dri libxatracker-dev xvfb
-  - export DISPLAY=:99
-  - export LIBGL_ALWAYS_SOFTWARE=1
-  - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
-  - sleep 10
-  - LIBGL_ALWAYS_SOFTWARE=1 glxinfo
-  - glxinfo
-  - wget -q --waitretry=1 --retry-connrefused -T 10 https://downloads.tuxfamily.org/godotengine/3.0.2/Godot_v3.0.2-stable_x11.64.zip -O /tmp/godot.zip
-  - unzip -q -d /tmp /tmp/godot.zip
-  - mv /tmp/Godot* /tmp/godot
+services:
+  - docker
+
+install:
+  - docker build -t gamedrivendevelopment/godot .
 
 script:
-  - /tmp/godot --fullscreen --export "HTML5" --path . output/index.html
+  - docker run -v `pwd`:/tmp/build gamedrivendevelopment/godot
 
 deploy:
   provider: pages
@@ -26,5 +15,5 @@ deploy:
   github-token: $GITHUB_TOKEN
   on:
     branch: master
-  local-dir: output
+  local-dir: /tmp/build/output
 
