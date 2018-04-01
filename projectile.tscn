@@ -1,32 +1,27 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://game/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://game/projectile.gd" type="Script" id=1]
 [ext_resource path="res://shitty_particle.png" type="Texture" id=2]
 [ext_resource path="res://explosion/particle_round.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.031187, 0.257812, 0.0772203, 1, 0.519531, 0.0488806, 0.379807, 0 )
 
-[sub_resource type="GradientTexture" id=5]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
-gradient = SubResource( 4 )
+gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 3
@@ -56,7 +51,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.5
 scale_random = 0.0
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -66,29 +61,23 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Radial Accel", "Scale", "Spread" ]
 
-[node name="projectile" type="KinematicBody2D"]
+[node name="projectile" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
-scale = Vector2( 0.4, 0.5 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset" ]
 
-[node name="trail" type="Particles2D" parent="." index="2"]
+[node name="trail" type="Particles2D" parent="." index="1"]
 
-material = SubResource( 3 )
+material = SubResource( 1 )
 scale = Vector2( 0.2, 0.2 )
 emitting = true
 amount = 400
@@ -103,11 +92,16 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 2 )
+process_material = SubResource( 4 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.0359383, -9.95235, 9.86236, -0.0540504, -0.149063, 9.78769, -10.1605, -0.0540504 )
 
 
