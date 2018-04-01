@@ -4,14 +4,16 @@ services:
   - docker
 
 install:
-  - docker build -t gamedrivendesign/godot .
+  - docker pull gamedrivendesign/godot-export
 
 script:
-  - docker run -v /tmp/output:/tmp/build/output gamedrivendesign/godot
+  - docker run -e EXPORT_NAME="HTML5" -e OUTPUT_FILENAME="index.html" -v $(pwd):/build/src -v /tmp/output:/build/output gamedrivendesign/godot-export
 
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
+  on:
+    branch: master
   local-dir: /tmp/output
 
