@@ -10,7 +10,7 @@ script:
   - docker run -e EXPORT_NAME="HTML5" -e OUTPUT_FILENAME="index.html" -v $(pwd):/build/src -v /tmp/output:/build/output gamedrivendesign/godot-export
 
 before_deploy:
-  - mv /tmp/output/* ci/build
+  - sudo mv /tmp/output/* ci/build
 
 deploy:
   provider: pages
