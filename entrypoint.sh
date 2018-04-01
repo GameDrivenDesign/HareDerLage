@@ -14,4 +14,4 @@ mkdir -p /home/developer/cache
 mkdir -p /home/developer/config
 
 sleep 3
-/home/developer/build/godot --export "HTML5" --path /home/developer/build /home/developer/build/output/index.html
+/home/developer/build/godot --export "HTML5" --path /home/developer/build /home/developer/build/output/index.html --audio-driver Dummy
