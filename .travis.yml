@@ -1,5 +1,3 @@
-sudo: required
-
 services:
   - docker
 
@@ -7,16 +5,23 @@ install:
   - docker pull gamedrivendesign/godot-export
 
 script:
-  - docker run -e EXPORT_NAME="HTML5" -e OUTPUT_FILENAME="index.html" -v $(pwd):/build/src -v /tmp/output:/build/output gamedrivendesign/godot-export
+  - docker run -e EXPORT_NAME="HTML5" -e OUTPUT_FILENAME="index.html" -v $(pwd):/build/src -v $(pwd)/output/html5:/build/output gamedrivendesign/godot-export
+  - docker run -e EXPORT_NAME="Linux/X11" -e OUTPUT_FILENAME="harederlage" -v $(pwd):/build/src -v $(pw)/output/linux:/build/output gamedrivendesign/godot-export
 
 before_deploy:
-  - sudo mv /tmp/output/* ci/build
+  - zip harederlage-linux.zip output/linux/*
 
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  on:
-    branch: master
-  local-dir: ci/build
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    on:
+      branch: master
+      local-dir: output/html5
 
+  - provider: releases
+    api-key: $GITHUB_TOKEN
+    file: harederlage-linux.zip
+    skip-cleanup: true
+    on:
+      tags: true
