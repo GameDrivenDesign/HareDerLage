@@ -6,7 +6,7 @@ install:
 
 script:
   - docker run -e EXPORT_NAME="HTML5" -e OUTPUT_FILENAME="index.html" -v $(pwd):/build/src -v $(pwd)/output/html5:/build/output gamedrivendesign/godot-export
-  - docker run -e EXPORT_NAME="Linux/X11" -e OUTPUT_FILENAME="harederlage" -v $(pwd):/build/src -v $(pw)/output/linux:/build/output gamedrivendesign/godot-export
+  - docker run -e EXPORT_NAME="Linux/X11" -e OUTPUT_FILENAME="harederlage" -v $(pwd):/build/src -v $(pwd)/output/linux:/build/output gamedrivendesign/godot-export
 
 before_deploy:
   - zip harederlage-linux.zip output/linux/*
