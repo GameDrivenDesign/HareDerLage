@@ -96,12 +96,13 @@ artifacts:
     name: $(GAME_NAME)-html
 
 # Deploy artifacts to GitHub releases for new tags
-deploy:
-  - provider: GitHub
-    artifact: /windows|linux|mac|html/
-    draft: false
-    prerelease: false
-    auth_token:
-      secure: yv0xyLQLnTDw5JBX0r5NdaBrHb4g9DyEmgIFhLysInvlZI1ZNUc6Qc+N9OdvieBP
-    on:
-      appveyor_repo_tag: true # deploy on tag push only
+# Currently disabled, because we use TravisCI for that purpose.
+# deploy:
+#   - provider: GitHub
+#     artifact: /windows|linux|mac|html/
+#     draft: false
+#     prerelease: false
+#     auth_token:
+#       secure: yv0xyLQLnTDw5JBX0r5NdaBrHb4g9DyEmgIFhLysInvlZI1ZNUc6Qc+N9OdvieBP
+#     on:
+#       appveyor_repo_tag: true # deploy on tag push only
