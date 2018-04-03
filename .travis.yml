@@ -31,7 +31,7 @@ before_deploy:
 - zip -j "${GAME_NAME}-linux.zip"   output/linux/*
 - zip -j "${GAME_NAME}-windows.zip" output/windows/*
 # No need to zip the mac game, because it already is a zip
-- mv output/mac/* .
+- cp -R output/mac/* .
 
 deploy:
 # The following block is responsible to upload the zip files
