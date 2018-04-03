@@ -12,7 +12,7 @@ script:
 - docker run -e EXPORT_NAME="HTML5"           -e OUTPUT_FILENAME="index.html"    -v $(pwd):/build/src -v $(pwd)/output/html5:/build/output   gamedrivendesign/godot-export
 - docker run -e EXPORT_NAME="Linux/X11"       -e OUTPUT_FILENAME="your_game"     -v $(pwd):/build/src -v $(pwd)/output/linux:/build/output   gamedrivendesign/godot-export
 - docker run -e EXPORT_NAME="Windows Desktop" -e OUTPUT_FILENAME="your_game.exe" -v $(pwd):/build/src -v $(pwd)/output/windows:/build/output gamedrivendesign/godot-export
-- docker run -e EXPORT_NAME="Mac OSX"         -e OUTPUT_FILENAME="your_game.exe" -v $(pwd):/build/src -v $(pwd)/output/mac:/build/output     gamedrivendesign/godot-export
+- docker run -e EXPORT_NAME="Mac OSX"         -e OUTPUT_FILENAME="your_game.app" -v $(pwd):/build/src -v $(pwd)/output/windows:/build/output gamedrivendesign/godot-export
 
 # before_deploy:
 # - zip harederlage-linux.zip output/linux/*
@@ -23,26 +23,26 @@ deploy:
 # to a "gh-pages" branch in your repository. It will then be accessible at:
 # username.github.io/reponame if your repo is at github.com/username/reponame.
 - provider: pages
-    skip-cleanup: true
-    # To make this work, you need to set a GITHUB_TOKEN environment variable through
-    # the TravisCI web ui. For more information take a look at the TravisCI docs:
-    # https://docs.travis-ci.com/user/deployment/pages/#Setting-the-GitHub-token
-    github-token: $GITHUB_TOKEN
-    local-dir: output/html5
-    on:
+  skip-cleanup: true
+  # To make this work, you need to set a GITHUB_TOKEN environment variable through
+  # the TravisCI web ui. For more information take a look at the TravisCI docs:
+  # https://docs.travis-ci.com/user/deployment/pages/#Setting-the-GitHub-token
+  github-token: $GITHUB_TOKEN
+  local-dir: output/html5
+  on:
     # This will only update the game with new commits from the master branch
+    # You can optionally only update the game on new git tags.
     branch: master
-    # Optionally only update the game on new git tags
     # tags: true
 
-#  enable this and the two parts above to push to github releases via travis (or use appveyor)
- - provider: releases
-   skip-cleanup: true
-   api_key: $GITHUB_TOKEN
-   file:
-     - output/linux.zip
-     - output/windows.zip
-     - output/mac.zip
-   on:
-     # Only create GitHub releases for new git tags
-     tags: true
+# enable this and the two parts above to push to github releases via travis (or use appveyor)
+- provider: releases
+  skip-cleanup: true
+  api_key: $GITHUB_TOKEN
+  file:
+    - harederlage-linux.zip
+  on:
+    # Create GitHub Releases for new git tags
+    # regardless of the branch.
+    all_branches: true
+    tags: true
