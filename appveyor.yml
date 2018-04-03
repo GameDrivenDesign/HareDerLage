@@ -75,7 +75,7 @@ build_script:
         $ErrorActionPreference = "Stop"
         c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Windows Desktop" c:\game-build\windows\game.exe
         c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Linux/X11"       c:\game-build\linux\game
-        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Mac OSX"         c:\game-build\mac\game
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Mac OSX"         c:\game-build\mac\game.app
         c:\game-tmp\godot.exe -v --no-window --path c:\game --export "HTML5"           c:\game-build\html\index.html
         cp -r c:\game-build\* c:\game\ci\build
 
