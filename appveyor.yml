@@ -24,6 +24,7 @@ cache:
 before_build:
   - ps: $ErrorActionPreference = "Stop"
   - ps: |-
+        mkdir -Force c:\game\ci\build
         mkdir -Force c:\game-build\windows
         mkdir -Force c:\game-build\linux
         mkdir -Force c:\game-build\mac
