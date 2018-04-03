@@ -5,6 +5,12 @@ clone_folder: c:\game
 platform: x64
 image: Visual Studio 2017
 
+environment:
+  # Use this to set your game's name. It is being used
+  # throughout this file for naming exported artifacts.
+  # This will, for example, create an "Awesome Game.exe"
+  GAME_NAME: Awesome Game
+
 # The following two lines can be enabled to allow a RDP connection to the machine
 # Connection details will be displayed in the build log.
 # If you want to keep the RDP connection open even after the last command
@@ -74,26 +80,26 @@ before_build:
 build_script:
   - ps: |-
         $ErrorActionPreference = "Stop"
-        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Windows Desktop" c:\game-build\windows\game.exe
-        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Linux/X11"       c:\game-build\linux\game
-        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Mac OSX"         c:\game-build\mac\game.zip
-        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "HTML5"           c:\game-build\html\index.html
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Windows Desktop" "c:\game-build\windows\$env:GAME_NAME.exe"
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Linux/X11"       "c:\game-build\linux\$env:GAME_NAME"
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Mac OSX"         "c:\game-build\mac\$env:GAME_NAME.zip"
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "HTML5"           "c:\game-build\html\index.html"
         cp -r c:\game-build\* c:\game\ci\build
 
 artifacts:
   - path: ci\build\windows
-    name: windows
+    name: $(GAME_NAME)-windows
   - path: ci\build\linux
-    name: linux
-  - path: ci\build\mac\game.zip
-    name: mac
+    name: $(GAME_NAME)-linux
+  - path: ci\build\mac\$(GAME_NAME).zip
+    name: $(GAME_NAME)-mac
   - path: ci\build\html
-    name: html
+    name: $(GAME_NAME)-html
 
 # Deploy artifacts to GitHub releases for new tags
 deploy:
   - provider: GitHub
-    artifact: /windows|linux|mac/
+    artifact: /windows|linux|mac|html/
     draft: false
     prerelease: false
     auth_token:
