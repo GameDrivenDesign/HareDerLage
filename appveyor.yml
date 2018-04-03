@@ -8,8 +8,8 @@ image: Visual Studio 2017
 environment:
   # Use this to set your game's name. It is being used
   # throughout this file for naming exported artifacts.
-  # This will, for example, create an "Awesome Game.exe"
-  GAME_NAME: Awesome Game
+  # This will, for example, create an "HareDerLage.exe"
+  GAME_NAME: HareDerLage
 
 # The following two lines can be enabled to allow a RDP connection to the machine
 # Connection details will be displayed in the build log.
