@@ -78,11 +78,12 @@ before_build:
 # Then move generated artifacts into project directory, which is required by AppVeyor
 # to be able to mark them as artifacts.
 build_script:
-  - ps: c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Windows Desktop" "c:\game-build\windows\$env:GAME_NAME.exe"
-  - ps: c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Linux/X11"       "c:\game-build\linux\$env:GAME_NAME"
-  - ps: c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Mac OSX"         "c:\game-build\mac\$env:GAME_NAME-mac.zip"
-  - ps: c:\game-tmp\godot.exe -v --no-window --path c:\game --export "HTML5"           "c:\game-build\html\index.html"
-  - ps: cp -r c:\game-build\* c:\game\ci\build
+  - ps: |-
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Windows Desktop" "c:\game-build\windows\$env:GAME_NAME.exe"
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Linux/X11"       "c:\game-build\linux\$env:GAME_NAME"
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "Mac OSX"         "c:\game-build\mac\$env:GAME_NAME-mac.zip"
+        c:\game-tmp\godot.exe -v --no-window --path c:\game --export "HTML5"           "c:\game-build\html\index.html"
+        cp -r c:\game-build\* c:\game\ci\build
 
 artifacts:
   - path: ci\build\windows
